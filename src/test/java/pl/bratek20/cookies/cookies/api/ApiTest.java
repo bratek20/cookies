@@ -1,13 +1,8 @@
 package pl.bratek20.cookies.cookies.api;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.DirtiesContext;
-import pl.bratek20.cookies.cookies.api.Cookie;
-import pl.bratek20.cookies.cookies.api.CookieFlavor;
-import pl.bratek20.cookies.cookies.api.CookiesApi;
 import pl.bratek20.cookies.identity.api.IdentityId;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -51,5 +46,11 @@ public abstract class ApiTest {
 
         assertThat(cookiesApi.countCookies(CookieFlavor.COCONUT, ID_1)).isEqualTo(1);
         assertThat(cookiesApi.countCookies(CookieFlavor.CHOCOLATE, ID_1)).isZero();
+    }
+
+    @Test
+    void shouldThrowWhenNoCookiesToConsume() {
+        Assertions.assertThatThrownBy(() -> cookiesApi.consumeCookie(COOKIE_FLAVOR, ID_1))
+            .isInstanceOf(NoCookiesToConsumeException.class);
     }
 }

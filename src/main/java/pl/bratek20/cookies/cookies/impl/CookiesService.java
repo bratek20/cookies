@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import pl.bratek20.cookies.cookies.api.Cookie;
 import pl.bratek20.cookies.cookies.api.CookieFlavor;
 import pl.bratek20.cookies.cookies.api.CookiesApi;
+import pl.bratek20.cookies.cookies.api.NoCookiesToConsumeException;
 import pl.bratek20.cookies.identity.api.IdentityId;
 
 import java.util.HashMap;
@@ -35,6 +36,9 @@ public class CookiesService implements CookiesApi {
     @Override
     public void consumeCookie(CookieFlavor flavor, IdentityId identityId) {
         var cookies = getOrCreateCookies(identityId);
+        if (cookies.getAmount(flavor) == 0) {
+            throw new NoCookiesToConsumeException();
+        }
         cookies.setAmount(flavor, cookies.getAmount(flavor) - 1);
     }
 

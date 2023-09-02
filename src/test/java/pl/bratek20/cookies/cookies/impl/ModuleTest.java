@@ -18,13 +18,14 @@ class ModuleTest {
     private static final IdentityId ID_2 = new IdentityId("2");
 
     private static final CookieFlavor COOKIE_FLAVOR = CookieFlavor.CHOCOLATE;
+    private static final Cookie COOKIE = new Cookie(COOKIE_FLAVOR);
 
     @Autowired
     private CookiesApi cookiesApi;
 
     @Test
     void shouldAddCookiesForGivenIdentity() {
-        cookiesApi.addCookie(null, ID_1);
+        cookiesApi.addCookie(COOKIE, ID_1);
 
         assertThat(cookiesApi.countCookies(COOKIE_FLAVOR, ID_1)).isEqualTo(1);
         assertThat(cookiesApi.countCookies(COOKIE_FLAVOR, ID_2)).isZero();
@@ -32,7 +33,7 @@ class ModuleTest {
 
     @Test
     void shouldConsumeCookies() {
-        cookiesApi.addCookie(null, ID_1);
+        cookiesApi.addCookie(COOKIE, ID_1);
 
         cookiesApi.consumeCookie(COOKIE_FLAVOR, ID_1);
 

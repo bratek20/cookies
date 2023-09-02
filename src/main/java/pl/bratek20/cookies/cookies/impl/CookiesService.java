@@ -12,20 +12,38 @@ import java.util.Map;
 @Service
 public class CookiesService implements CookiesApi {
 
-    private final Map<IdentityId, Integer> cookies = new HashMap<>();
+    class Cookies {
+        private final Map<CookieFlavor, Integer> amounts = new HashMap<>();
+
+        public void setAmount(CookieFlavor flavor, int amount) {
+            amounts.put(flavor, amount);
+        }
+
+        public int getAmount(CookieFlavor flavor) {
+            return amounts.getOrDefault(flavor, 0);
+        }
+    }
+
+    private final Map<IdentityId, Cookies> identitiesCookies = new HashMap<>();
 
     @Override
     public void addCookie(Cookie cookie, IdentityId identityId) {
-        cookies.put(identityId, cookies.getOrDefault(identityId, 0) + 1);
+        var cookies = getOrCreateCookies(identityId);
+        cookies.setAmount(cookie.flavor(), cookies.getAmount(cookie.flavor()) + 1);
     }
 
     @Override
     public void consumeCookie(CookieFlavor flavor, IdentityId identityId) {
-        cookies.put(identityId, cookies.getOrDefault(identityId, 0) - 1);
+        var cookies = getOrCreateCookies(identityId);
+        cookies.setAmount(flavor, cookies.getAmount(flavor) - 1);
     }
 
     @Override
     public int countCookies(CookieFlavor flavor, IdentityId identityId) {
-        return cookies.getOrDefault(identityId, 0);
+        return getOrCreateCookies(identityId).getAmount(flavor);
+    }
+
+    private Cookies getOrCreateCookies(IdentityId identityId) {
+        return identitiesCookies.computeIfAbsent(identityId, id -> new Cookies());
     }
 }

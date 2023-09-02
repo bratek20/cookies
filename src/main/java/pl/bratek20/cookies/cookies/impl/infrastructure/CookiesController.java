@@ -1,4 +1,4 @@
-package pl.bratek20.cookies.cookies.impl;
+package pl.bratek20.cookies.cookies.impl.infrastructure;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

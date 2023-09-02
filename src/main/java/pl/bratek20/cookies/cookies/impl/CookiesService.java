@@ -2,6 +2,7 @@ package pl.bratek20.cookies.cookies.impl;
 
 import org.springframework.stereotype.Service;
 import pl.bratek20.cookies.cookies.api.Cookie;
+import pl.bratek20.cookies.cookies.api.CookieFlavor;
 import pl.bratek20.cookies.cookies.api.CookiesApi;
 import pl.bratek20.cookies.identity.api.IdentityId;
 
@@ -19,12 +20,12 @@ public class CookiesService implements CookiesApi {
     }
 
     @Override
-    public void consumeCookie(IdentityId identityId) {
+    public void consumeCookie(CookieFlavor flavor, IdentityId identityId) {
         cookies.put(identityId, cookies.getOrDefault(identityId, 0) - 1);
     }
 
     @Override
-    public int countCookies(IdentityId identityId) {
+    public int countCookies(CookieFlavor flavor, IdentityId identityId) {
         return cookies.getOrDefault(identityId, 0);
     }
 }

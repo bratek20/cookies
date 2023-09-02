@@ -4,6 +4,6 @@ import pl.bratek20.cookies.identity.api.IdentityId;
 
 public interface CookiesApi {
     void addCookie(Cookie cookie, IdentityId identityId);
-    void consumeCookie(IdentityId identityId);
-    int countCookies(IdentityId identityId);
+    void consumeCookie(CookieFlavor flavor, IdentityId identityId);
+    int countCookies(CookieFlavor flavor, IdentityId identityId);
 }

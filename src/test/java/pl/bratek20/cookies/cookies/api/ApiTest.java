@@ -1,5 +1,6 @@
-package pl.bratek20.cookies.cookies.impl;
+package pl.bratek20.cookies.cookies.api;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,17 +12,21 @@ import pl.bratek20.cookies.identity.api.IdentityId;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest
-@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
-class ModuleTest {
+public abstract class ApiTest {
     private static final IdentityId ID_1 = new IdentityId("1");
     private static final IdentityId ID_2 = new IdentityId("2");
 
     private static final CookieFlavor COOKIE_FLAVOR = CookieFlavor.CHOCOLATE;
     private static final Cookie COOKIE = new Cookie(COOKIE_FLAVOR);
 
-    @Autowired
+    protected abstract CookiesApi createCookiesApi();
+
     private CookiesApi cookiesApi;
+
+    @BeforeEach
+    void setUp() {
+        cookiesApi = createCookiesApi();
+    }
 
     @Test
     void shouldAddCookiesForGivenIdentity() {

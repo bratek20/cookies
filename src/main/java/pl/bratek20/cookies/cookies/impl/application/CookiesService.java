@@ -8,9 +8,6 @@ import pl.bratek20.cookies.cookies.api.CookiesApi;
 import pl.bratek20.cookies.cookies.api.NoCookiesToConsumeException;
 import pl.bratek20.cookies.identity.api.IdentityId;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @Service
 @RequiredArgsConstructor
 public class CookiesService implements CookiesApi {

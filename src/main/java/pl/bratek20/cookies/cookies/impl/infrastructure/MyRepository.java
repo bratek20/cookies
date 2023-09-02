@@ -1,14 +1,16 @@
 package pl.bratek20.cookies.cookies.impl.infrastructure;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Repository;
 import pl.bratek20.cookies.cookies.api.CookieFlavor;
 import pl.bratek20.cookies.cookies.impl.application.CookiesRepository;
 import pl.bratek20.cookies.identity.api.IdentityId;
 
 import java.util.Optional;
 
+@Repository
 @RequiredArgsConstructor
-public class CrudCookiesRepositoryImpl implements CookiesRepository {
+public class MyRepository implements CookiesRepository {
 
     private final CrudCookiesRepository repository;
 

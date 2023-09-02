@@ -19,8 +19,8 @@ public class CookiesService implements CookiesApi {
     }
 
     @Override
-    public void consumeCookie(Cookie cookie, IdentityId identityId) {
-
+    public void consumeCookie(IdentityId identityId) {
+        cookies.put(identityId, cookies.getOrDefault(identityId, 0) - 1);
     }
 
     @Override

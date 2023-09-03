@@ -16,7 +16,7 @@ public class CookiesEntity {
     private Long id; // Auto-generated primary key
 
     private String identityId;
-    private CookieFlavor flavor;
+    private String flavor;
     private int amount;
 }
 

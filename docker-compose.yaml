@@ -1,12 +1,11 @@
-version: '3'
 services:
   mysql:
     image: mysql:5.7
     container_name: spring-mysql
     environment:
-      MYSQL_ROOT_PASSWORD: your_root_password
-      MYSQL_DATABASE: your_database
-      MYSQL_USER: your_username
-      MYSQL_PASSWORD: your_password
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: cookies_db
+      MYSQL_USER: cookies_user
+      MYSQL_PASSWORD: password
     ports:
       - "3306:3306"

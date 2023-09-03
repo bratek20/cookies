@@ -16,13 +16,13 @@ public class MyRepository implements CookiesRepository {
 
     @Override
     public int getAmount(IdentityId identityId, CookieFlavor flavor) {
-        Optional<CookiesEntity> entity = repository.findByIdentityIdAndFlavor(identityId.value(), flavor);
+        Optional<CookiesEntity> entity = repository.findByIdentityIdAndFlavor(identityId.value(), flavor.name());
         return entity.map(CookiesEntity::getAmount).orElse(0);
     }
 
     @Override
     public void setAmount(IdentityId identityId, CookieFlavor flavor, int amount) {
-        Optional<CookiesEntity> entity = repository.findByIdentityIdAndFlavor(identityId.value(), flavor);
+        Optional<CookiesEntity> entity = repository.findByIdentityIdAndFlavor(identityId.value(), flavor.name());
         if (entity.isPresent()) {
             CookiesEntity cookiesEntity = entity.get();
             cookiesEntity.setAmount(amount);
@@ -30,7 +30,7 @@ public class MyRepository implements CookiesRepository {
         } else {
             CookiesEntity newCookiesEntity = new CookiesEntity();
             newCookiesEntity.setIdentityId(identityId.value());
-            newCookiesEntity.setFlavor(flavor);
+            newCookiesEntity.setFlavor(flavor.name());
             newCookiesEntity.setAmount(amount);
             repository.save(newCookiesEntity);
         }

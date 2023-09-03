@@ -26,10 +26,10 @@ class WebTest {
     void shouldSupportAllRequests() {
         assertCookiesCount(0);
 
-        addCookie();
+        addCookieAndAssert(1);
         assertCookiesCount(1);
 
-        consumeCookie();
+        consumeCookieAndAssert(0);
         assertCookiesCount(0);
     }
 
@@ -41,21 +41,24 @@ class WebTest {
             .body(is(String.valueOf(count)));
     }
 
-    private void addCookie() {
+    private void addCookieAndAssert(int expectedValue) {
         given()
             .contentType(ContentType.JSON)
             .body("{" +"\"flavor\": \"CHOCOLATE\"" + "}")
         .when()
             .post("/cookies/add/user123")
         .then()
-            .statusCode(200);
+            .statusCode(200)
+            .body(is(String.valueOf(expectedValue)));
     }
 
-    private void consumeCookie() {
+    private void consumeCookieAndAssert(int expectedValue) {
         when()
             .post("/cookies/consume/user123/CHOCOLATE")
-            .then()
-            .statusCode(200);
+        .then()
+            .statusCode(200)
+            .body(is(String.valueOf(expectedValue)));
+
     }
 }
 

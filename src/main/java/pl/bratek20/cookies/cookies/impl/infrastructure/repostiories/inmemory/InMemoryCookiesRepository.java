@@ -1,4 +1,4 @@
-package pl.bratek20.cookies.cookies.impl.infrastructure;
+package pl.bratek20.cookies.cookies.impl.infrastructure.repostiories.inmemory;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
@@ -10,8 +10,6 @@ import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 
-
-//@Repository
 public class InMemoryCookiesRepository implements CookiesRepository {
 
     private static class Cookies {

@@ -1,9 +1,8 @@
-package pl.bratek20.cookies.cookies.impl.infrastructure;
+package pl.bratek20.cookies.cookies.impl.infrastructure.repostiories.crud;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import pl.bratek20.cookies.cookies.api.CookieFlavor;
 
 @Entity
 @Setter

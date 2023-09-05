@@ -1,4 +1,4 @@
-package pl.bratek20.cookies.cookies.impl.infrastructure;
+package pl.bratek20.cookies.cookies.impl.infrastructure.repostiories.crud;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -8,11 +8,10 @@ import pl.bratek20.cookies.identity.api.IdentityId;
 
 import java.util.Optional;
 
-@Repository
 @RequiredArgsConstructor
-public class MyRepository implements CookiesRepository {
+public class CrudCookiesRepository implements CookiesRepository {
 
-    private final CrudCookiesRepository repository;
+    private final CrudCookiesEntityRepository repository;
 
     @Override
     public int getAmount(IdentityId identityId, CookieFlavor flavor) {

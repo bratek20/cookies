@@ -8,7 +8,6 @@ import pl.bratek20.cookies.cookies.api.CookiesApi;
 import pl.bratek20.cookies.cookies.impl.application.CookiesService;
 import pl.bratek20.cookies.identity.api.IdentityId;
 
-@Component
 @RequiredArgsConstructor
 public class CookiesApiImpl implements CookiesApi {
 

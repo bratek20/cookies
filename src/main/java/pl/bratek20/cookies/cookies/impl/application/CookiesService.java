@@ -7,7 +7,6 @@ import pl.bratek20.cookies.cookies.api.CookieFlavor;
 import pl.bratek20.cookies.cookies.api.NoCookiesToConsumeException;
 import pl.bratek20.cookies.identity.api.IdentityId;
 
-@Service
 @RequiredArgsConstructor
 public class CookiesService {
 

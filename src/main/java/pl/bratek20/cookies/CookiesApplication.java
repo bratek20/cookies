@@ -12,7 +12,7 @@ public class CookiesApplication {
     @SpringBootConfiguration
     @EnableAutoConfiguration(
         exclude = {
-            //DataSourceAutoConfiguration.class,
+            DataSourceAutoConfiguration.class,
         }
     )
     public static class BaseConfig { }

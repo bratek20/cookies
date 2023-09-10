@@ -4,16 +4,24 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.autoconfigure.web.servlet.DispatcherServletAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.test.context.ActiveProfiles;
+import org.springframework.context.annotation.Import;
+import pl.bratek20.cookies.CookiesApplication;
+import pl.bratek20.cookies.cookies.impl.infrastructure.configs.TestCookiesConfig;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
 import static org.hamcrest.Matchers.is;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@ActiveProfiles("test")
+@SpringBootTest(
+    classes = {
+        CookiesApplication.BaseConfig.class,
+        TestCookiesConfig.class,
+    },
+    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
+)
 class WebTest {
 
     @LocalServerPort

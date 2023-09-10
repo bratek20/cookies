@@ -9,15 +9,15 @@ import javax.sql.DataSource;
 
 @Configuration
 public class CrudRepositoryConfig {
-    @Bean
-    public DataSource dataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/cookies_db");
-        dataSource.setUsername("cookies_user");
-        dataSource.setPassword("password");
-        return dataSource;
-    }
+//    @Bean
+//    public DataSource dataSource() {
+//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+//        dataSource.setUrl("jdbc:mysql://localhost:3306/cookies_db");
+//        dataSource.setUsername("cookies_user");
+//        dataSource.setPassword("password");
+//        return dataSource;
+//    }
 
     @Bean
     public CookiesRepository cookiesRepository(CrudCookiesEntityRepository crudCookiesEntityRepository) {

@@ -21,7 +21,10 @@ public abstract class ApiTest {
     @BeforeEach
     void setUp() {
         cookiesApi = createCookiesApi();
+        setup();
     }
+
+    protected void setup() {}
 
     @Test
     void shouldAddCookiesForGivenIdentity() {

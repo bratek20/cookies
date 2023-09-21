@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Import;
 import pl.bratek20.cookies.cookies.impl.infrastructure.configs.CookiesConfig;
+import pl.bratek20.cookies.cookies.web.WebServerCookiesConfig;
 
 public class CookiesApplication {
 
@@ -19,7 +20,8 @@ public class CookiesApplication {
 
     @Import({
         BaseConfig.class,
-        CookiesConfig.class
+        CookiesConfig.class,
+        WebServerCookiesConfig.class,
     })
     static class MainConfig { }
 

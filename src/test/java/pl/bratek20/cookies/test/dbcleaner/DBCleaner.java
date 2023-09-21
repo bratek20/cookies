@@ -1,4 +1,4 @@
-package pl.bratek20.cookies.test;
+package pl.bratek20.cookies.test.dbcleaner;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -9,5 +9,12 @@ public class DBCleaner {
 
     public void deleteAll(String tableName) {
         jdbcTemplate.update(String.format("DELETE FROM %s", tableName));
+    }
+
+    public void deleteAllTables() {
+        jdbcTemplate.queryForList("SHOW TABLES").forEach(table -> {
+            String tableName = table.values().iterator().next().toString();
+            deleteAll(tableName);
+        });
     }
 }

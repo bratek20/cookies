@@ -1,4 +1,4 @@
-package pl.bratek20.cookies.test;
+package pl.bratek20.cookies.test.dbcleaner;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

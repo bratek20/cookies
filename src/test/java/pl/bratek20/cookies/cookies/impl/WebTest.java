@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import pl.bratek20.cookies.CookiesApplication;
-import pl.bratek20.cookies.cookies.impl.infrastructure.configs.TestCookiesConfig;
+import pl.bratek20.cookies.cookies.test.TestCookiesConfig;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;

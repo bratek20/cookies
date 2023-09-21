@@ -9,7 +9,7 @@ import pl.bratek20.cookies.cookies.impl.infrastructure.CookiesApiImpl;
 import pl.bratek20.cookies.cookies.impl.infrastructure.CookiesController;
 
 @Configuration
-class BaseCookiesConfig {
+public class BaseCookiesConfig {
     @Bean
     public CookiesApi cookiesApi(CookiesService cookiesService) {
         return new CookiesApiImpl(cookiesService);

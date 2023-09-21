@@ -5,7 +5,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import pl.bratek20.cookies.cookies.api.ApiTest;
 import pl.bratek20.cookies.cookies.api.CookiesApi;
-import pl.bratek20.cookies.cookies.impl.infrastructure.configs.TestCookiesConfig;
+import pl.bratek20.cookies.cookies.test.TestCookiesConfig;
 
 @SpringBootTest(classes = TestCookiesConfig.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)

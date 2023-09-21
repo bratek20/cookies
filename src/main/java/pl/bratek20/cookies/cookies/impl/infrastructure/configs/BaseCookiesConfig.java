@@ -1,5 +1,6 @@
 package pl.bratek20.cookies.cookies.impl.infrastructure.configs;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import pl.bratek20.cookies.cookies.api.CookiesApi;
@@ -7,10 +8,12 @@ import pl.bratek20.cookies.cookies.impl.application.CookiesRepository;
 import pl.bratek20.cookies.cookies.impl.application.CookiesService;
 
 @Configuration
-public class BaseCookiesConfig {
+@RequiredArgsConstructor
+class BaseCookiesConfig {
+    private final CookiesRepository cookiesRepository;
 
     @Bean
-    public CookiesApi cookiesService(CookiesRepository cookiesRepository) {
+    public CookiesApi cookiesService() {
         return new CookiesService(cookiesRepository);
     }
 }

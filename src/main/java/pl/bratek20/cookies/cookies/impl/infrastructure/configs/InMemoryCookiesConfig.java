@@ -1,8 +1,7 @@
-package pl.bratek20.cookies.cookies.test;
+package pl.bratek20.cookies.cookies.impl.infrastructure.configs;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import pl.bratek20.cookies.cookies.impl.infrastructure.configs.BaseCookiesConfig;
 import pl.bratek20.cookies.cookies.impl.infrastructure.repostiories.inmemory.InMemoryRepositoryConfig;
 
 @Configuration
@@ -10,6 +9,6 @@ import pl.bratek20.cookies.cookies.impl.infrastructure.repostiories.inmemory.InM
         BaseCookiesConfig.class,
         InMemoryRepositoryConfig.class
 })
-public class TestCookiesConfig {
+public class InMemoryCookiesConfig {
 
 }

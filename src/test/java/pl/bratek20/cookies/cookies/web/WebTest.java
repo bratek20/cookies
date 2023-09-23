@@ -5,7 +5,7 @@ import io.restassured.http.ContentType;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.annotation.DirtiesContext;
-import pl.bratek20.cookies.CookiesApplication;
+import pl.bratek20.cookies.app.web.BaseWebConfig;
 import pl.bratek20.cookies.cookies.api.*;
 import pl.bratek20.cookies.cookies.impl.infrastructure.configs.InMemoryCookiesConfig;
 import pl.bratek20.cookies.identity.api.IdentityId;
@@ -15,7 +15,7 @@ import static io.restassured.RestAssured.when;
 
 @SpringBootTest(
     classes = {
-        CookiesApplication.BaseConfig.class,
+        BaseWebConfig.class,
         InMemoryCookiesConfig.class,
         WebServerCookiesConfig.class,
     },

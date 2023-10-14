@@ -16,17 +16,17 @@ public class CookiesController {
     private final CookiesApi cookiesApi;
 
     @PostMapping("/add/{identityId}")
-    public void addCookie(@PathVariable String identityId, @RequestBody Cookie cookie) {
+    public void addCookie(@PathVariable long identityId, @RequestBody Cookie cookie) {
         cookiesApi.addCookie(cookie, new IdentityId(identityId));
     }
 
     @PostMapping("/consume/{identityId}/{flavor}")
-    public void consumeCookie(@PathVariable String identityId, @PathVariable CookieFlavor flavor) {
+    public void consumeCookie(@PathVariable long identityId, @PathVariable CookieFlavor flavor) {
         cookiesApi.consumeCookie(flavor, new IdentityId(identityId));
     }
 
     @GetMapping("/count/{identityId}/{flavor}")
-    public int countCookies(@PathVariable String identityId, @PathVariable CookieFlavor flavor) {
+    public int countCookies(@PathVariable long identityId, @PathVariable CookieFlavor flavor) {
         return cookiesApi.countCookies(flavor, new IdentityId(identityId));
     }
 }

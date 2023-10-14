@@ -8,8 +8,8 @@ import pl.bratek20.cookies.identity.api.IdentityId;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public abstract class ApiTest {
-    private static final IdentityId ID_1 = new IdentityId("1");
-    private static final IdentityId ID_2 = new IdentityId("2");
+    private static final IdentityId ID_1 = new IdentityId(1);
+    private static final IdentityId ID_2 = new IdentityId(2);
 
     private static final CookieFlavor COOKIE_FLAVOR = CookieFlavor.CHOCOLATE;
     private static final Cookie COOKIE = new Cookie(COOKIE_FLAVOR);

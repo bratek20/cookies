@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.Optional;
 
 public interface CrudCookiesEntityRepository extends CrudRepository<CookiesEntity, Long> {
-    Optional<CookiesEntity> findByIdentityIdAndFlavor(String identityId, String flavor);
+    Optional<CookiesEntity> findByIdentityIdAndFlavor(long identityId, String flavor);
 }
 

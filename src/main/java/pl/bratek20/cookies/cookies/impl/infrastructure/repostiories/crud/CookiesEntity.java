@@ -14,7 +14,7 @@ public class CookiesEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; // Auto-generated primary key
 
-    private String identityId;
+    private Long identityId;
     private String flavor;
     private int amount;
 }

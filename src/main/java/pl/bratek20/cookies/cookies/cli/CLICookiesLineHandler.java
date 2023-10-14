@@ -29,22 +29,26 @@ public class CLICookiesLineHandler implements CLILineHandler {
     }
     private String addCookie(String[] arguments) {
         var flavor = CookieFlavor.valueOf(arguments[1]);
-        var identity = new IdentityId(arguments[2]);
+        var identity = identityId(arguments[2]);
         cookiesApi.addCookie(new Cookie(flavor), identity);
         return "Cookie added";
     }
 
     private String consumeCookie(String[] arguments) {
         var flavor = CookieFlavor.valueOf(arguments[1]);
-        var identity = new IdentityId(arguments[2]);
+        var identity = identityId(arguments[2]);
         cookiesApi.consumeCookie(flavor, identity);
         return "Cookie consumed";
     }
 
     private String countCookies(String[] arguments) {
         var flavor = CookieFlavor.valueOf(arguments[1]);
-        var identity = new IdentityId(arguments[2]);
+        var identity = identityId(arguments[2]);
         int count = cookiesApi.countCookies(flavor, identity);
         return "Cookies count: " + count;
+    }
+
+    private IdentityId identityId(String argument) {
+        return new IdentityId(Integer.parseInt(argument));
     }
 }

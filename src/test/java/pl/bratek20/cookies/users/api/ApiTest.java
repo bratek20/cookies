@@ -1,7 +1,7 @@
 package pl.bratek20.cookies.users.api;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import pl.bratek20.cookies.module.test.BaseApiTest;
 import pl.bratek20.cookies.users.api.exceptions.UserAlreadyExistsException;
 import pl.bratek20.cookies.users.api.exceptions.UserNotExistsException;
 import pl.bratek20.cookies.users.api.exceptions.WrongUserPasswordException;
@@ -9,22 +9,13 @@ import pl.bratek20.cookies.users.api.exceptions.WrongUserPasswordException;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-abstract class ApiTest {
-
-    protected abstract Users createUsers();
-
-    private Users users;
-
-    @BeforeEach
-    void setUp() {
-        users = createUsers();
-    }
+abstract class ApiTest extends BaseApiTest<UserApi> {
 
     @Test
     void shouldCreateUser() {
         User user = new User("login", "password");
 
-        var id = users.create(user);
+        var id = api.create(user);
 
         assertThat(id).isNotNull();
     }
@@ -34,8 +25,8 @@ abstract class ApiTest {
         User user1 = new User("login1", "password");
         User user2 = new User("login2", "password");
 
-        var id1 = users.create(user1);
-        var id2 = users.create(user2);
+        var id1 = api.create(user1);
+        var id2 = api.create(user2);
 
         assertThat(id1).isNotEqualTo(id2);
     }
@@ -43,9 +34,9 @@ abstract class ApiTest {
     @Test
     void shouldGetIdentityId() {
         User user = new User("login", "password");
-        var id = users.create(user);
+        var id = api.create(user);
 
-        var identityId = users.getIdentityId(user);
+        var identityId = api.getIdentityId(user);
 
         assertThat(identityId).isEqualTo(id);
     }
@@ -54,9 +45,9 @@ abstract class ApiTest {
     void shouldThrowOnCreateWhenUserAlreadyExists() {
         User user = new User("login", "password");
         User sameLoginUser = new User("login", "otherPassword");
-        users.create(user);
+        api.create(user);
 
-        assertThatThrownBy(() -> users.create(sameLoginUser))
+        assertThatThrownBy(() -> api.create(sameLoginUser))
                 .isInstanceOf(UserAlreadyExistsException.class);
     }
 
@@ -64,7 +55,7 @@ abstract class ApiTest {
     void shouldThrowOnGetIdentityIdWhenUserNotExists() {
         User user = new User("login", "password");
 
-        assertThatThrownBy(() -> users.getIdentityId(user))
+        assertThatThrownBy(() -> api.getIdentityId(user))
                 .isInstanceOf(UserNotExistsException.class);
     }
 
@@ -72,9 +63,9 @@ abstract class ApiTest {
     void shouldThrowOnGetIdentityIdWhenPasswordIsWrong() {
         User user = new User("login", "password");
         User wrongPasswordUser = new User("login", "wrongPassword");
-        users.create(user);
+        api.create(user);
 
-        assertThatThrownBy(() -> users.getIdentityId(wrongPasswordUser))
+        assertThatThrownBy(() -> api.getIdentityId(wrongPasswordUser))
                 .isInstanceOf(WrongUserPasswordException.class);
     }
 }

@@ -47,6 +47,15 @@ tasks.named('test') {
 }
 
 publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+
+            groupId = 'pl.bratek20'
+            artifactId = 'cookies'
+            version = '0.0.1-SNAPSHOT'
+        }
+    }
     repositories {
         maven {
             name = "GitHubPackages"

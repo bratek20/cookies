@@ -6,8 +6,9 @@ plugins {
     id 'maven-publish'
 }
 
+
 group = 'pl.bratek20'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.2-SNAPSHOT'
 
 java {
     sourceCompatibility = '17'
@@ -51,9 +52,7 @@ publishing {
         mavenJava(MavenPublication) {
             from components.java
 
-            groupId = 'pl.bratek20'
-            artifactId = 'cookies'
-            version = '0.0.1-SNAPSHOT'
+            artifactId = project.name
         }
     }
     repositories {

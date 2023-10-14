@@ -1,15 +1,15 @@
-package pl.bratek20.cookies.users.api;
+package pl.bratek20.cookies.user.api;
 
 import org.junit.jupiter.api.Test;
 import pl.bratek20.cookies.module.test.BaseApiTest;
-import pl.bratek20.cookies.users.api.exceptions.UserAlreadyExistsException;
-import pl.bratek20.cookies.users.api.exceptions.UserNotExistsException;
-import pl.bratek20.cookies.users.api.exceptions.WrongUserPasswordException;
+import pl.bratek20.cookies.user.api.exceptions.UserAlreadyExistsException;
+import pl.bratek20.cookies.user.api.exceptions.UserNotExistsException;
+import pl.bratek20.cookies.user.api.exceptions.WrongUserPasswordException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-abstract class ApiTest extends BaseApiTest<UserApi> {
+public abstract class UserApiTest extends BaseApiTest<UserApi> {
 
     @Test
     void shouldCreateUser() {

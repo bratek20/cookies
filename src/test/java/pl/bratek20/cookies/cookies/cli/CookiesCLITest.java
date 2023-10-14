@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import pl.bratek20.cookies.app.cli.BaseCLIConfig;
 import pl.bratek20.cookies.app.cli.CLILineHandler;
-import pl.bratek20.cookies.cookies.api.ApiTest;
+import pl.bratek20.cookies.cookies.api.CookiesApiTest;
 import pl.bratek20.cookies.cookies.api.Cookie;
 import pl.bratek20.cookies.cookies.api.CookieFlavor;
 import pl.bratek20.cookies.cookies.api.CookiesApi;
@@ -21,7 +21,7 @@ import pl.bratek20.cookies.identity.api.IdentityId;
     }
 )
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
-class CLITest extends ApiTest {
+class CookiesCLITest extends CookiesApiTest {
     @Autowired
     private CLILineHandler cliLineHandler;
 

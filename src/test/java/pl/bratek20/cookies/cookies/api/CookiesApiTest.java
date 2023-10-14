@@ -7,7 +7,7 @@ import pl.bratek20.cookies.identity.api.IdentityId;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public abstract class ApiTest {
+public abstract class CookiesApiTest {
     private static final IdentityId ID_1 = new IdentityId(1);
     private static final IdentityId ID_2 = new IdentityId(2);
 

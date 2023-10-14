@@ -1,4 +1,4 @@
-package pl.bratek20.cookies.users.api.exceptions;
+package pl.bratek20.cookies.user.api.exceptions;
 
 import pl.bratek20.cookies.module.ApiException;
 

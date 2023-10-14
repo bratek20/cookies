@@ -1,17 +1,17 @@
-package pl.bratek20.cookies.users.impl.appli;
+package pl.bratek20.cookies.user.impl.appli;
 
 import lombok.RequiredArgsConstructor;
 import pl.bratek20.cookies.identity.api.IdentityApi;
 import pl.bratek20.cookies.identity.api.IdentityId;
-import pl.bratek20.cookies.users.api.User;
-import pl.bratek20.cookies.users.api.UserApi;
-import pl.bratek20.cookies.users.api.exceptions.UserAlreadyExistsException;
-import pl.bratek20.cookies.users.api.exceptions.UserNotExistsException;
-import pl.bratek20.cookies.users.api.exceptions.WrongUserPasswordException;
+import pl.bratek20.cookies.user.api.User;
+import pl.bratek20.cookies.user.api.UserApi;
+import pl.bratek20.cookies.user.api.exceptions.UserAlreadyExistsException;
+import pl.bratek20.cookies.user.api.exceptions.UserNotExistsException;
+import pl.bratek20.cookies.user.api.exceptions.WrongUserPasswordException;
 
 @RequiredArgsConstructor
-public class UsersService implements UserApi {
-    private final UsersRepository repository;
+public class UserService implements UserApi {
+    private final UserRepository repository;
 
     private final IdentityApi identityApi;
 

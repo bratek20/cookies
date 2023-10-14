@@ -22,7 +22,7 @@ import static io.restassured.RestAssured.when;
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
 )
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
-class WebTest extends ApiTest {
+class CookiesWebTest extends CookiesApiTest {
 
     @LocalServerPort
     private int port;

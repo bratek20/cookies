@@ -5,7 +5,7 @@ import pl.bratek20.cookies.module.test.BaseApiTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public abstract class ApiTest extends BaseApiTest<IdentityApi> {
+public abstract class IdentityApiTest extends BaseApiTest<IdentityApi> {
     @Test
     void shouldGenerateDifferentIdentityId() {
         IdentityId id1 = api.generate();

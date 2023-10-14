@@ -17,8 +17,8 @@ public class UserService implements UserApi {
 
     @Override
     public IdentityId create(User user) {
-        if (repository.hasUserLogin(user.login())) {
-            throw new UserAlreadyExistsException(user.login());
+        if (repository.hasUserLogin(user.name())) {
+            throw new UserAlreadyExistsException(user.name());
         }
 
         var identityId = identityApi.generate();
@@ -29,7 +29,7 @@ public class UserService implements UserApi {
 
     @Override
     public IdentityId getIdentityId(User user) {
-        return repository.findByLogin(user.login())
+        return repository.findByLogin(user.name())
             .map(
                 u -> {
                     if (u.user().password().equals(user.password())) {
@@ -38,6 +38,6 @@ public class UserService implements UserApi {
                     throw new WrongUserPasswordException();
                 }
             )
-            .orElseThrow(() -> new UserNotExistsException(user.login()));
+            .orElseThrow(() -> new UserNotExistsException(user.name()));
     }
 }

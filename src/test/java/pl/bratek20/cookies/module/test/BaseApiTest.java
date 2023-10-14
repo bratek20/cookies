@@ -8,7 +8,11 @@ public abstract class BaseApiTest<T> {
     protected T api;
 
     @BeforeEach
-    void setUp() {
+    void beforeEach() {
         api = createApi();
+        setup();
+    }
+
+    protected void setup() {
     }
 }

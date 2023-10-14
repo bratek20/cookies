@@ -13,7 +13,7 @@ public abstract class UserApiTest extends BaseApiTest<UserApi> {
 
     @Test
     void shouldCreateUser() {
-        User user = new User("login", "password");
+        User user = new User("name", "password");
 
         var id = api.create(user);
 
@@ -22,8 +22,8 @@ public abstract class UserApiTest extends BaseApiTest<UserApi> {
 
     @Test
     void shouldCreateDifferentUsers() {
-        User user1 = new User("login1", "password");
-        User user2 = new User("login2", "password");
+        User user1 = new User("name1", "password");
+        User user2 = new User("name2", "password");
 
         var id1 = api.create(user1);
         var id2 = api.create(user2);
@@ -33,7 +33,7 @@ public abstract class UserApiTest extends BaseApiTest<UserApi> {
 
     @Test
     void shouldGetIdentityId() {
-        User user = new User("login", "password");
+        User user = new User("name", "password");
         var id = api.create(user);
 
         var identityId = api.getIdentityId(user);
@@ -43,8 +43,8 @@ public abstract class UserApiTest extends BaseApiTest<UserApi> {
 
     @Test
     void shouldThrowOnCreateWhenUserAlreadyExists() {
-        User user = new User("login", "password");
-        User sameLoginUser = new User("login", "otherPassword");
+        User user = new User("name", "password");
+        User sameLoginUser = new User("name", "otherPassword");
         api.create(user);
 
         assertThatThrownBy(() -> api.create(sameLoginUser))
@@ -53,7 +53,7 @@ public abstract class UserApiTest extends BaseApiTest<UserApi> {
 
     @Test
     void shouldThrowOnGetIdentityIdWhenUserNotExists() {
-        User user = new User("login", "password");
+        User user = new User("name", "password");
 
         assertThatThrownBy(() -> api.getIdentityId(user))
                 .isInstanceOf(UserNotExistsException.class);
@@ -61,8 +61,8 @@ public abstract class UserApiTest extends BaseApiTest<UserApi> {
 
     @Test
     void shouldThrowOnGetIdentityIdWhenPasswordIsWrong() {
-        User user = new User("login", "password");
-        User wrongPasswordUser = new User("login", "wrongPassword");
+        User user = new User("name", "password");
+        User wrongPasswordUser = new User("name", "wrongPassword");
         api.create(user);
 
         assertThatThrownBy(() -> api.getIdentityId(wrongPasswordUser))

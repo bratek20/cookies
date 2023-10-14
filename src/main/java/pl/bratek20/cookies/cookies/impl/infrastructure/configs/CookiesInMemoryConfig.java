@@ -9,6 +9,6 @@ import pl.bratek20.cookies.cookies.impl.infrastructure.repostiories.inmemory.InM
         BaseCookiesConfig.class,
         InMemoryRepositoryConfig.class
 })
-public class InMemoryCookiesConfig {
+public class CookiesInMemoryConfig {
 
 }

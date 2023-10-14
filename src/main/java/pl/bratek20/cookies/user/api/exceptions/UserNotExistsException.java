@@ -5,6 +5,6 @@ import pl.bratek20.cookies.module.ApiException;
 public class UserNotExistsException extends ApiException {
 
     public UserNotExistsException(String login) {
-        super("User with login " + login + " not exists");
+        super("User with name " + login + " not exists");
     }
 }

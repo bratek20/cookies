@@ -7,7 +7,7 @@ import pl.bratek20.cookies.cookies.api.CookiesApi;
 
 @RequiredArgsConstructor
 @Configuration
-public class CLIServerCookiesConfig {
+public class CookiesCLIServerConfig {
     private final CookiesApi cookiesApi;
 
     @Bean

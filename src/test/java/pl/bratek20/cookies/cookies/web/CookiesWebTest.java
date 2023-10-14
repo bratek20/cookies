@@ -7,7 +7,7 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.annotation.DirtiesContext;
 import pl.bratek20.cookies.app.web.BaseWebConfig;
 import pl.bratek20.cookies.cookies.api.*;
-import pl.bratek20.cookies.cookies.impl.infrastructure.configs.InMemoryCookiesConfig;
+import pl.bratek20.cookies.cookies.impl.infrastructure.configs.CookiesInMemoryConfig;
 import pl.bratek20.cookies.identity.api.IdentityId;
 
 import static io.restassured.RestAssured.given;
@@ -16,8 +16,8 @@ import static io.restassured.RestAssured.when;
 @SpringBootTest(
     classes = {
         BaseWebConfig.class,
-        InMemoryCookiesConfig.class,
-        WebServerCookiesConfig.class,
+        CookiesInMemoryConfig.class,
+        CookiesWebServerConfig.class,
     },
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
 )

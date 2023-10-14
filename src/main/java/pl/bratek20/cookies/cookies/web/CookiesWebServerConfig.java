@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import pl.bratek20.cookies.cookies.api.CookiesApi;
 
 @Configuration
-public class WebServerCookiesConfig {
+public class CookiesWebServerConfig {
     @Bean
     public CookiesController cookiesController(CookiesApi cookiesApi) {
         return new CookiesController(cookiesApi);

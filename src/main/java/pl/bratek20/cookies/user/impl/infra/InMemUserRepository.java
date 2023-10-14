@@ -15,7 +15,7 @@ public class InMemUserRepository implements UserRepository {
 
     @Override
     public void save(UserIdentity user) {
-        users.put(user.user().login(), user);
+        users.put(user.user().name(), user);
     }
 
     @Override

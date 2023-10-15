@@ -8,7 +8,7 @@ plugins {
 
 
 group = 'pl.bratek20'
-version = '0.0.2-SNAPSHOT'
+version = '0.0.3-SNAPSHOT'
 
 java {
     sourceCompatibility = '17'
@@ -49,10 +49,7 @@ tasks.named('test') {
 
 publishing {
     publications {
-        mavenJava(MavenPublication) {
-            from components.java
-
-            artifactId = project.name
+        myPublication(MavenPublication) {
         }
     }
     repositories {

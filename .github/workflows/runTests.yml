@@ -23,3 +23,10 @@ jobs:
 
       - name: Build and Test with Gradle
         run: ./gradlew clean test
+
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action/composite@v2
+        if: always()
+        with:
+          files: |
+            test-results/**/*.xml

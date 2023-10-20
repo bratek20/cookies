@@ -1,7 +1,6 @@
 package pl.bratek20.cookies.cookies.api;
 
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pl.bratek20.cookies.identity.api.IdentityId;
 import pl.bratek20.cookies.module.test.BaseApiTest;
@@ -14,7 +13,7 @@ public abstract class CookiesApiTest extends BaseApiTest<CookiesApi> {
 
     private static final CookieFlavor COOKIE_FLAVOR = CookieFlavor.CHOCOLATE;
     private static final Cookie COOKIE = new Cookie(COOKIE_FLAVOR);
-    
+
     @Test
     void shouldAddCookiesForGivenIdentity() {
         api.addCookie(COOKIE, ID_1);

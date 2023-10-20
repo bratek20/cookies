@@ -33,13 +33,8 @@ public abstract class Script<TApi, TArgs> {
         } catch (ParseException e) {
             log.error("Parsing arguments failed: " + e.getMessage());
             new HelpFormatter().printHelp("Script", options);
-            System.exit(1);
         } catch (CreateArgsException e) {
             log.error("Creating arguments failed: " + e.getMessage());
-            System.exit(1);
-        } catch (Exception e) {
-            log.error("Running script failed: " + e.getMessage());
-            System.exit(1);
         }
         return null;
     }

@@ -1,32 +1,43 @@
 package pl.bratek20.cookies.main;
 
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.stream.Stream;
 
 @Slf4j
 public class Main {
 
-    @SneakyThrows
     public static void main(String[] args) {
         if (args.length < 1) {
-            log.info("Usage: <classPath> [args...]");
+            log.error("Specify the class path as the first argument");
             return;
         }
 
-        // Get the class path and remaining arguments
         String classPath = args[0];
-        String[] remainingArgs = new String[args.length - 1];
-        System.arraycopy(args, 1, remainingArgs, 0, args.length - 1);
+        var remainingArgs = Stream.of(args).skip(1).toArray(String[]::new);
 
-        // Load the class using the provided class path
-        Class<?> clazz = Class.forName(classPath);
+        Class<?> clazz = null;
+        try {
+            clazz = Class.forName(classPath);
+        } catch (ClassNotFoundException e) {
+            log.error("Class not found for path: {}", classPath);
+            return;
+        }
 
-        // Find the main method with the expected signature (String[] args)
-        Method mainMethod = clazz.getMethod("main", String[].class);
+        Method mainMethod = null;
+        try {
+            mainMethod = clazz.getMethod("main", String[].class);
+        } catch (NoSuchMethodException e) {
+            log.error("Main method not found for class: {}", clazz.getName());
+            return;
+        }
 
-        // Invoke the main method, passing the remaining arguments
-        mainMethod.invoke(null, (Object) remainingArgs);
+        try {
+            mainMethod.invoke(null, (Object) remainingArgs);
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            log.error("Error while invoking main method for class: {}", clazz);
+        }
     }
 }

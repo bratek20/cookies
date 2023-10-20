@@ -2,7 +2,6 @@ package pl.bratek20.cookies.cookies.script;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.Options;
-import pl.bratek20.cookies.app.script.ScriptCookiesAppConfig;
 import pl.bratek20.cookies.cookies.api.Cookie;
 import pl.bratek20.cookies.cookies.api.CookieFlavor;
 import pl.bratek20.cookies.cookies.api.CookiesApi;

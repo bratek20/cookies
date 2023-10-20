@@ -1,4 +1,4 @@
-package pl.bratek20.cookies.app.cli;
+package pl.bratek20.cookies.cli;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

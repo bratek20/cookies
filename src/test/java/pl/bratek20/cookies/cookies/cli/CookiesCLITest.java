@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import pl.bratek20.cookies.app.cli.BaseCLIConfig;
-import pl.bratek20.cookies.app.cli.CLILineHandler;
+import pl.bratek20.cookies.cli.CLILineHandler;
 import pl.bratek20.cookies.cookies.api.CookiesApiTest;
 import pl.bratek20.cookies.cookies.api.Cookie;
 import pl.bratek20.cookies.cookies.api.CookieFlavor;

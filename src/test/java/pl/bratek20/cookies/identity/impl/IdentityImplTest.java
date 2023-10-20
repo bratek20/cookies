@@ -2,7 +2,7 @@ package pl.bratek20.cookies.identity.impl;
 
 import pl.bratek20.cookies.identity.api.IdentityApiTest;
 import pl.bratek20.cookies.identity.api.IdentityApi;
-import pl.bratek20.cookies.test.ContextCreator;
+import pl.bratek20.cookies.spring.ContextCreator;
 
 public class IdentityImplTest extends IdentityApiTest {
 

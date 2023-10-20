@@ -2,7 +2,7 @@ package pl.bratek20.cookies.cookies.cli;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import pl.bratek20.cookies.app.cli.CLILineHandler;
+import pl.bratek20.cookies.cli.CLILineHandler;
 import pl.bratek20.cookies.cookies.api.Cookie;
 import pl.bratek20.cookies.cookies.api.CookieFlavor;
 import pl.bratek20.cookies.cookies.api.CookiesApi;

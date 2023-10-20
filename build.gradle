@@ -33,6 +33,8 @@ dependencies {
 
     implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${springdocVersion}"
 
+    implementation "commons-cli:commons-cli:${commonsCliVersion}"
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation "org.assertj:assertj-core:${assertjVersion}"
     testImplementation "io.rest-assured:rest-assured:${restAssuredVersion}"

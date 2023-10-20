@@ -11,7 +11,6 @@ import pl.bratek20.cookies.cookies.impl.application.CookiesRepository;
 @Configuration
 @Import({
     DataSourceAutoConfiguration.class,
-
 })
 @EnableJpaRepositories
 @EntityScan

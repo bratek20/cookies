@@ -2,30 +2,42 @@ package pl.bratek20.cookies.script;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.cli.*;
+import pl.bratek20.cookies.spring.ContextCreator;
 
 @Slf4j
-public abstract class Script {
-    public void run (String[] args) {
-        // Define options and arguments
+public abstract class Script<TConfig, TApi, TArgs> {
+    protected abstract void addOptions(Options options);
+
+    protected abstract TArgs createArgs(CommandLine cmd) throws CreateArgsException;
+
+    protected abstract void run(TApi api, TArgs args);
+
+    protected abstract Class<TApi> getApiClass();
+    protected abstract Class<TConfig> getConfigClass();
+
+    public void run (String[] rawArgs) {
         Options options = new Options();
-        Option inputOption = new Option("i", "input", true, "Input argument");
-        options.addOption(inputOption);
+        addOptions(options);
 
         CommandLineParser parser = new DefaultParser();
         CommandLine cmd;
 
         try {
-            cmd = parser.parse(options, args);
+            cmd = parser.parse(options, rawArgs);
+            var args = createArgs(cmd);
+            var api = createApi();
+            run(api, args);
         } catch (ParseException e) {
-            log.error("Error parsing command-line arguments: " + e.getMessage());
-            new HelpFormatter().printHelp("MyCommandLineApp", options);
+            log.error("Parsing arguments failed: " + e.getMessage());
+            new HelpFormatter().printHelp("Script", options);
             System.exit(1);
-            return;
+        } catch (CreateArgsException e) {
+            log.error("Creating arguments failed: " + e.getMessage());
+            System.exit(1);
         }
+    }
 
-        // Handle the parsed arguments
-        String input = cmd.getOptionValue("input");
-        System.out.println("Input argument: " + input);
-        // Implement your logic here based on the parsed arguments
+    private TApi createApi() {
+        return ContextCreator.createAndGet(getConfigClass(), getApiClass());
     }
 }

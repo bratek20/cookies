@@ -28,7 +28,7 @@ class CookiesWebTest extends CookiesApiTest {
     private int port;
 
     @Override
-    protected CookiesApi createCookiesApi() {
+    protected CookiesApi createApi() {
         return new WebClient();
     }
 

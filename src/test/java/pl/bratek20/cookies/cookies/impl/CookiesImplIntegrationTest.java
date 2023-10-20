@@ -22,7 +22,7 @@ class CookiesImplIntegrationTest extends CookiesApiTest {
     private CookiesApi cookiesApi;
 
     @Override
-    protected CookiesApi createCookiesApi() {
+    protected CookiesApi createApi() {
         return cookiesApi;
     }
 }

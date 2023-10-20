@@ -8,7 +8,7 @@ import pl.bratek20.cookies.spring.ContextCreator;
 class CookiesImplTest extends CookiesApiTest {
 
     @Override
-    protected CookiesApi createCookiesApi() {
+    protected CookiesApi createApi() {
         return ContextCreator.createAndGet(CookiesInMemoryConfig.class, CookiesApi.class);
     }
 }

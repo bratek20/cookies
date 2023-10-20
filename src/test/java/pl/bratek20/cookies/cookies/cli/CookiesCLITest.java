@@ -26,7 +26,7 @@ class CookiesCLITest extends CookiesApiTest {
     private CLILineHandler cliLineHandler;
 
     @Override
-    protected CookiesApi createCookiesApi() {
+    protected CookiesApi createApi() {
         return new CLIClient(cliLineHandler);
     }
 

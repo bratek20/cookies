@@ -6,8 +6,14 @@ import pl.bratek20.cookies.cookies.api.CookiesApi;
 import pl.bratek20.cookies.cookies.impl.infrastructure.configs.CookiesConfig;
 import pl.bratek20.cookies.script.CreateArgsException;
 import pl.bratek20.cookies.script.Script;
+import pl.bratek20.cookies.script.SpringScriptRunner;
 
-public class CookiesScript extends Script<CookiesConfig, CookiesApi, CookiesScript.Args> {
+public class CookiesScript extends Script<CookiesApi, CookiesScript.Args> {
+
+    public CookiesScript(CookiesApi cookiesApi) {
+        super(cookiesApi);
+    }
+
     class Args {
 
     }
@@ -22,17 +28,15 @@ public class CookiesScript extends Script<CookiesConfig, CookiesApi, CookiesScri
     }
 
     @Override
-    protected void run(CookiesApi api, Args args) {
-
+    protected String run(CookiesApi api, Args args) {
+        return "Done";
     }
 
-    @Override
-    protected Class<CookiesApi> getApiClass() {
-        return CookiesApi.class;
-    }
-
-    @Override
-    protected Class<CookiesConfig> getConfigClass() {
-        return CookiesConfig.class;
+    public static void main(String[] args) {
+        new SpringScriptRunner<>(
+            CookiesConfig.class,
+            CookiesApi.class,
+            CookiesScript.class
+        ).run(args);
     }
 }

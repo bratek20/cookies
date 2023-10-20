@@ -15,7 +15,6 @@ public abstract class CookiesApiTest extends BaseApiTest<CookiesApi> {
     private static final CookieFlavor COOKIE_FLAVOR = CookieFlavor.CHOCOLATE;
     private static final Cookie COOKIE = new Cookie(COOKIE_FLAVOR);
     
-
     @Test
     void shouldAddCookiesForGivenIdentity() {
         api.addCookie(COOKIE, ID_1);

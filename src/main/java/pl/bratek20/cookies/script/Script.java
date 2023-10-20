@@ -2,20 +2,22 @@ package pl.bratek20.cookies.script;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.cli.*;
-import pl.bratek20.cookies.spring.ContextCreator;
 
 @Slf4j
-public abstract class Script<TConfig, TApi, TArgs> {
+public abstract class Script<TApi, TArgs> {
     protected abstract void addOptions(Options options);
 
     protected abstract TArgs createArgs(CommandLine cmd) throws CreateArgsException;
 
-    protected abstract void run(TApi api, TArgs args);
+    protected abstract String run(TApi api, TArgs args);
 
-    protected abstract Class<TApi> getApiClass();
-    protected abstract Class<TConfig> getConfigClass();
+    private final TApi api;
 
-    public void run (String[] rawArgs) {
+    protected Script(TApi api) {
+        this.api = api;
+    }
+
+    public String run(String[] rawArgs) {
         Options options = new Options();
         addOptions(options);
 
@@ -25,8 +27,9 @@ public abstract class Script<TConfig, TApi, TArgs> {
         try {
             cmd = parser.parse(options, rawArgs);
             var args = createArgs(cmd);
-            var api = createApi();
-            run(api, args);
+            var result = run(api, args);
+            log.info(result);
+            return result;
         } catch (ParseException e) {
             log.error("Parsing arguments failed: " + e.getMessage());
             new HelpFormatter().printHelp("Script", options);
@@ -34,10 +37,10 @@ public abstract class Script<TConfig, TApi, TArgs> {
         } catch (CreateArgsException e) {
             log.error("Creating arguments failed: " + e.getMessage());
             System.exit(1);
+        } catch (Exception e) {
+            log.error("Running script failed: " + e.getMessage());
+            System.exit(1);
         }
-    }
-
-    private TApi createApi() {
-        return ContextCreator.createAndGet(getConfigClass(), getApiClass());
+        return null;
     }
 }

@@ -9,7 +9,7 @@ public class SpringScriptRunner<TApi, TArgs> {
     private final Script<TApi, TArgs> script;
 
     @SneakyThrows
-    public <T extends Script<TApi, TArgs>>SpringScriptRunner(Class<?> configClass, Class<TApi> apiClass, Class<T> scriptClass) {
+    public <T extends Script<TApi, TArgs>> SpringScriptRunner(Class<?> configClass, Class<TApi> apiClass, Class<T> scriptClass) {
         var api = ContextCreator.createAndGet(configClass, apiClass);
         this.script = scriptClass.getConstructor(apiClass).newInstance(api);
     }

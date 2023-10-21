@@ -1,7 +1,7 @@
-package pl.bratek20.cookies.identity.impl;
+package pl.bratek20.common.identity.impl;
 
-import pl.bratek20.cookies.identity.api.IdentityApi;
-import pl.bratek20.cookies.identity.api.IdentityId;
+import pl.bratek20.common.identity.api.IdentityApi;
+import pl.bratek20.common.identity.api.IdentityId;
 
 public class IdentityService implements IdentityApi {
     private int nextId = 1;

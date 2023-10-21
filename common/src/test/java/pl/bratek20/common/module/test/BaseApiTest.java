@@ -1,4 +1,4 @@
-package pl.bratek20.cookies.module.test;
+package pl.bratek20.common.module.test;
 
 import org.junit.jupiter.api.BeforeEach;
 

@@ -1,4 +1,4 @@
-package pl.bratek20.cookies.spring;
+package pl.bratek20.common.spring;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

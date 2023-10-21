@@ -1,8 +1,8 @@
-package pl.bratek20.cookies.identity.impl;
+package pl.bratek20.common.identity.impl;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import pl.bratek20.cookies.identity.api.IdentityApi;
+import pl.bratek20.common.identity.api.IdentityApi;
 
 @Configuration
 public class IdentityConfig {

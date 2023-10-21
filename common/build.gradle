@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id "io.freefair.lombok" version "8.3"
+}
+
+group = 'pl.bratek20'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+dependencies {
+    implementation 'org.springframework:spring-context:6.0.13'
+
+    // SLF4J API
+    implementation 'org.slf4j:slf4j-api:1.7.32'
+
+    // Choose an implementation (e.g., Logback)
+    implementation 'ch.qos.logback:logback-classic:1.2.6'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+
+    testImplementation "org.assertj:assertj-core:${assertjVersion}"
+
+
+}
+
+test {
+    useJUnitPlatform()
+}

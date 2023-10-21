@@ -1,4 +1,4 @@
-package pl.bratek20.cookies.main;
+package pl.bratek20.common.main;
 
 import lombok.extern.slf4j.Slf4j;
 

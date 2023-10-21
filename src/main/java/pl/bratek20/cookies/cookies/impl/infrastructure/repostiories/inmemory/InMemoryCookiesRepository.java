@@ -1,7 +1,5 @@
 package pl.bratek20.cookies.cookies.impl.infrastructure.repostiories.inmemory;
 
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Repository;
 import pl.bratek20.cookies.cookies.api.CookieFlavor;
 import pl.bratek20.cookies.cookies.impl.application.CookiesRepository;
 import pl.bratek20.cookies.identity.api.IdentityId;

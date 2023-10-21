@@ -1,4 +1,4 @@
-package pl.bratek20.cookies.module;
+package pl.bratek20.common.module;
 
 public class ApiException extends RuntimeException {
 

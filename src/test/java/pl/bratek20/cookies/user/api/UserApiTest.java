@@ -1,10 +1,10 @@
 package pl.bratek20.cookies.user.api;
 
 import org.junit.jupiter.api.Test;
-import pl.bratek20.common.module.test.BaseApiTest;
 import pl.bratek20.cookies.user.api.exceptions.UserAlreadyExistsException;
 import pl.bratek20.cookies.user.api.exceptions.UserNotExistsException;
 import pl.bratek20.cookies.user.api.exceptions.WrongUserPasswordException;
+import pl.bratek20.common.module.BaseApiTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;

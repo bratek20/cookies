@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id "io.freefair.lombok" version "8.3"
+    id 'java-test-fixtures'
 }
 
 group = 'pl.bratek20'
@@ -33,7 +34,7 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
 
     testImplementation "org.assertj:assertj-core:${assertjVersion}"
-
+    testFixturesImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
 
 }
 

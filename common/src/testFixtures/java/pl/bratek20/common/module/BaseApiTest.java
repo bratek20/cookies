@@ -1,4 +1,4 @@
-package pl.bratek20.common.module.test;
+package pl.bratek20.common.module;
 
 import org.junit.jupiter.api.BeforeEach;
 

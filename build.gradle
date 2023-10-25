@@ -5,6 +5,7 @@ plugins {
     id "io.freefair.lombok" version "8.3"
     id 'maven-publish'
     id 'application'
+    id 'java-test-fixtures'
 }
 
 group = 'pl.bratek20'
@@ -30,7 +31,7 @@ repositories {
 
 dependencies {
     implementation project(':common')
-    testImplementation project(':common')
+    testImplementation testFixtures(project(':common'))
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
 

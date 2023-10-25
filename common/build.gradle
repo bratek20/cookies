@@ -22,19 +22,34 @@ configurations {
 }
 
 dependencies {
+    // spring
     implementation 'org.springframework:spring-context:6.0.13'
+    implementation 'org.springframework:spring-web:6.0.13'
 
-    // SLF4J API
+    // spring boot
+    implementation 'org.springframework.boot:spring-boot:3.1.3'
+    implementation 'org.springframework.boot:spring-boot-autoconfigure:3.1.3'
+
+    // logging
     implementation 'org.slf4j:slf4j-api:1.7.32'
-
-    // Choose an implementation (e.g., Logback)
     implementation 'ch.qos.logback:logback-classic:1.2.6'
+
+    implementation "commons-cli:commons-cli:${commonsCliVersion}"
+
+    testImplementation 'org.springframework.boot:spring-boot-test:3.1.3'
+
+    testImplementation 'org.springframework:spring-test:6.0.13'
+
+
+
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
 
     testImplementation "org.assertj:assertj-core:${assertjVersion}"
     testFixturesImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+
+    testImplementation "io.rest-assured:rest-assured:${restAssuredVersion}"
 
 }
 

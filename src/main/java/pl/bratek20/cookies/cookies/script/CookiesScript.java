@@ -7,9 +7,9 @@ import pl.bratek20.cookies.cookies.api.CookieFlavor;
 import pl.bratek20.cookies.cookies.api.CookiesApi;
 import pl.bratek20.cookies.cookies.impl.infrastructure.configs.CookiesInMemoryConfig;
 import pl.bratek20.common.identity.api.IdentityId;
-import pl.bratek20.cookies.script.CreateArgsException;
-import pl.bratek20.cookies.script.Script;
-import pl.bratek20.cookies.script.SpringScriptRunner;
+import pl.bratek20.common.script.CreateArgsException;
+import pl.bratek20.common.script.Script;
+import pl.bratek20.common.script.SpringScriptRunner;
 
 public class CookiesScript extends Script<CookiesApi, CookiesScript.Args> {
 

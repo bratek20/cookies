@@ -1,6 +1,6 @@
 package pl.bratek20.cookies.user.api.exceptions;
 
-import pl.bratek20.cookies.module.ApiException;
+import pl.bratek20.common.module.ApiException;
 
 public class UserAlreadyExistsException extends ApiException {
 

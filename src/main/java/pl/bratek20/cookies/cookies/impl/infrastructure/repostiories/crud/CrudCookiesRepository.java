@@ -3,7 +3,7 @@ package pl.bratek20.cookies.cookies.impl.infrastructure.repostiories.crud;
 import lombok.RequiredArgsConstructor;
 import pl.bratek20.cookies.cookies.api.CookieFlavor;
 import pl.bratek20.cookies.cookies.impl.application.CookiesRepository;
-import pl.bratek20.cookies.identity.api.IdentityId;
+import pl.bratek20.common.identity.api.IdentityId;
 
 import java.util.Optional;
 

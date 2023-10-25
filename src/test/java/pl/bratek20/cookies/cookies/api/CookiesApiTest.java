@@ -2,8 +2,8 @@ package pl.bratek20.cookies.cookies.api;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import pl.bratek20.cookies.identity.api.IdentityId;
-import pl.bratek20.cookies.module.test.BaseApiTest;
+import pl.bratek20.common.identity.api.IdentityId;
+import pl.bratek20.common.module.test.BaseApiTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

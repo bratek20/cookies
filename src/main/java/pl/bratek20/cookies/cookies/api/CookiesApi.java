@@ -1,6 +1,6 @@
 package pl.bratek20.cookies.cookies.api;
 
-import pl.bratek20.cookies.identity.api.IdentityId;
+import pl.bratek20.common.identity.api.IdentityId;
 
 public interface CookiesApi {
     void addCookie(Cookie cookie, IdentityId identityId);

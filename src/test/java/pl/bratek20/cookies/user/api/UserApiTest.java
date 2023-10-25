@@ -1,7 +1,7 @@
 package pl.bratek20.cookies.user.api;
 
 import org.junit.jupiter.api.Test;
-import pl.bratek20.cookies.module.test.BaseApiTest;
+import pl.bratek20.common.module.test.BaseApiTest;
 import pl.bratek20.cookies.user.api.exceptions.UserAlreadyExistsException;
 import pl.bratek20.cookies.user.api.exceptions.UserNotExistsException;
 import pl.bratek20.cookies.user.api.exceptions.WrongUserPasswordException;

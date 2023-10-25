@@ -2,7 +2,7 @@ package pl.bratek20.cookies.script;
 
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
-import pl.bratek20.cookies.spring.ContextCreator;
+import pl.bratek20.common.spring.ContextCreator;
 
 @RequiredArgsConstructor
 public class SpringScriptRunner<TApi, TArgs> {

@@ -1,8 +1,8 @@
 package pl.bratek20.cookies.user.impl.appli;
 
 import lombok.RequiredArgsConstructor;
-import pl.bratek20.cookies.identity.api.IdentityApi;
-import pl.bratek20.cookies.identity.api.IdentityId;
+import pl.bratek20.common.identity.api.IdentityApi;
+import pl.bratek20.common.identity.api.IdentityId;
 import pl.bratek20.cookies.user.api.User;
 import pl.bratek20.cookies.user.api.UserApi;
 import pl.bratek20.cookies.user.api.exceptions.UserAlreadyExistsException;

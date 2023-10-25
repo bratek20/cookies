@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.annotation.DirtiesContext;
 import pl.bratek20.cookies.app.web.BaseWebConfig;
-import pl.bratek20.cookies.identity.api.IdentityId;
+import pl.bratek20.common.identity.api.IdentityId;
 import pl.bratek20.cookies.user.api.User;
 import pl.bratek20.cookies.user.api.UserApi;
 import pl.bratek20.cookies.user.api.UserApiTest;

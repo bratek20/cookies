@@ -11,7 +11,7 @@ import pl.bratek20.cookies.cookies.api.Cookie;
 import pl.bratek20.cookies.cookies.api.CookieFlavor;
 import pl.bratek20.cookies.cookies.api.CookiesApi;
 import pl.bratek20.cookies.cookies.impl.infrastructure.configs.CookiesInMemoryConfig;
-import pl.bratek20.cookies.identity.api.IdentityId;
+import pl.bratek20.common.identity.api.IdentityId;
 
 @SpringBootTest(
     classes = {

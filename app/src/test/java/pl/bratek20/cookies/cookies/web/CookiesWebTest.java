@@ -1,18 +1,14 @@
 package pl.bratek20.cookies.cookies.web;
 
-import pl.bratek20.cookies.cookies.api.CookiesApiTest;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.annotation.DirtiesContext;
 import pl.bratek20.common.app.web.BaseWebConfig;
+import pl.bratek20.common.identity.api.IdentityId;
 import pl.bratek20.cookies.cookies.api.*;
 import pl.bratek20.cookies.cookies.impl.infrastructure.configs.CookiesInMemoryConfig;
-import pl.bratek20.common.identity.api.IdentityId;
-
-import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.when;
 
 @SpringBootTest(
     classes = {
@@ -42,7 +38,7 @@ class CookiesWebTest extends CookiesApiTest {
 
         @Override
         public void addCookie(Cookie cookie, IdentityId identityId) {
-            String url = "/pl/bratek20/cookies/add/" + identityId.value();
+            String url = "/cookies/add/" + identityId.value();
             String body = """
                 {
                     "flavor": "%s"
@@ -60,7 +56,7 @@ class CookiesWebTest extends CookiesApiTest {
 
         @Override
         public void consumeCookie(CookieFlavor flavor, IdentityId identityId) {
-            String url = "/pl/bratek20/cookies/consume/" + identityId.value() + "/" + flavor.name();
+            String url = "/cookies/consume/" + identityId.value() + "/" + flavor.name();
 
             var response = RestAssured.when()
                 .post(url);
@@ -72,7 +68,7 @@ class CookiesWebTest extends CookiesApiTest {
 
         @Override
         public int countCookies(CookieFlavor flavor, IdentityId identityId) {
-            String url = "/pl/bratek20/cookies/count/" + identityId.value() + "/" + flavor.name();
+            String url = "/cookies/count/" + identityId.value() + "/" + flavor.name();
 
             String count = RestAssured.when()
                 .get(url)

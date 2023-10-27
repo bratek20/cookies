@@ -1,0 +1,22 @@
+plugins {
+    id 'java-test-fixtures'
+}
+
+dependencies {
+
+    // test framework
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+
+    testFixturesImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+
+    // assertions
+    testImplementation "org.assertj:assertj-core:${assertjVersion}"
+
+    // web testing
+    testImplementation "io.rest-assured:rest-assured:${restAssuredVersion}"
+}
+
+test {
+    useJUnitPlatform()
+}

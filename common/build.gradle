@@ -1,6 +1,7 @@
 plugins {
     id 'java-library'
     id 'cookies.common-conventions'
+    id 'cookies.web-testing-conventions'
 }
 
 version = '0.0.2-SNAPSHOT'
@@ -27,16 +28,4 @@ dependencies {
 
     // scripts
     api "commons-cli:commons-cli:${commonsCliVersion}"
-
-    // test framework
-    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
-
-    testFixturesImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
-
-    // assertions
-    testImplementation "org.assertj:assertj-core:${assertjVersion}"
-
-    // web testing
-    testImplementation "io.rest-assured:rest-assured:${restAssuredVersion}"
 }

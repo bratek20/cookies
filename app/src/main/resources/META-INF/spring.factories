@@ -1,2 +1,2 @@
 org.springframework.test.context.TestExecutionListener=\
-pl.bratek20.dbcleaner.test.pl.bratek20.cookies.DBCleanerTestListener
+pl.bratek20.cookies.test.dbcleaner.DBCleanerTestListener

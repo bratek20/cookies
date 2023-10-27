@@ -1,5 +1,6 @@
 package pl.bratek20.cookies.cookies.web;
 
+import pl.bratek20.cookies.cookies.api.CookiesApiTest;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -41,14 +42,14 @@ class CookiesWebTest extends CookiesApiTest {
 
         @Override
         public void addCookie(Cookie cookie, IdentityId identityId) {
-            String url = "/cookies/add/" + identityId.value();
+            String url = "/pl/bratek20/cookies/add/" + identityId.value();
             String body = """
                 {
                     "flavor": "%s"
                 }
                 """.formatted(cookie.flavor().name());
 
-            given()
+            RestAssured.given()
                 .contentType(ContentType.JSON)
                 .body(body)
             .when()
@@ -59,9 +60,9 @@ class CookiesWebTest extends CookiesApiTest {
 
         @Override
         public void consumeCookie(CookieFlavor flavor, IdentityId identityId) {
-            String url = "/cookies/consume/" + identityId.value() + "/" + flavor.name();
+            String url = "/pl/bratek20/cookies/consume/" + identityId.value() + "/" + flavor.name();
 
-            var response = when()
+            var response = RestAssured.when()
                 .post(url);
 
             if (response.statusCode() == 500) {
@@ -71,9 +72,9 @@ class CookiesWebTest extends CookiesApiTest {
 
         @Override
         public int countCookies(CookieFlavor flavor, IdentityId identityId) {
-            String url = "/cookies/count/" + identityId.value() + "/" + flavor.name();
+            String url = "/pl/bratek20/cookies/count/" + identityId.value() + "/" + flavor.name();
 
-            String count = when()
+            String count = RestAssured.when()
                 .get(url)
             .then()
                 .statusCode(200)

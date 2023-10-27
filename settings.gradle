@@ -1,3 +1,5 @@
 rootProject.name = 'cookies'
 
 include 'common'
+include 'app'
+

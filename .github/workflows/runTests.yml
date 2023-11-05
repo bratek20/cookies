@@ -2,8 +2,6 @@ name: Run Tests
 
 on:
   push:
-    branches:
-      - main
 
 jobs:
   build:
@@ -18,16 +16,17 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+
       - name: Grant Execute Permission to Gradlew
         run: chmod +x ./gradlew
 
       - name: Build and Test with Gradle
         run: ./gradlew clean test
 
-      - name: Test Report
-        uses: dorny/test-reporter@v1
-        if: success() || failure()    # run this step even if previous step failed
-        with:
-          name: JEST Tests            # Name of the check run which will be created
-          path: build/test-results/**/*.xml    # Path to test results
-          reporter: java-junit        # Format of test results
+#      - name: Test Report
+#        uses: dorny/test-reporter@v1
+#        if: success() || failure()    # run this step even if previous step failed
+#        with:
+#          name: JEST Tests            # Name of the check run which will be created
+#          path: build/test-results/**/*.xml    # Path to test results
+#          reporter: java-junit        # Format of test results

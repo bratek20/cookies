@@ -2,10 +2,15 @@ package pl.bratek20.common.spring;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ContextHelper {
     private final List<Class<?>> configurations;
+
+    record Singleton(String name, Object object) {}
+    private final List<Singleton> singletonsToRegister = new ArrayList<>();
+
     private AnnotationConfigApplicationContext context;
 
     public ContextHelper(Class<?>... configurations) {
@@ -19,7 +24,15 @@ public class ContextHelper {
 
     private void ensureBuilt() {
         if (context == null) {
-            context = new AnnotationConfigApplicationContext(configurations.toArray(Class[]::new));
+            context = new AnnotationConfigApplicationContext();
+            singletonsToRegister.forEach(singleton -> context.getBeanFactory().registerSingleton(singleton.name(), singleton.object()));
+            context.register(configurations.toArray(Class[]::new));
+            context.refresh();
         }
+    }
+
+    public ContextHelper registerSingleton(String singletonName, Object singletonObject) {
+        singletonsToRegister.add(new Singleton(singletonName, singletonObject));
+        return this;
     }
 }

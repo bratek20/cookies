@@ -9,6 +9,8 @@ version = '0.0.2-SNAPSHOT'
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    testFixturesImplementation 'org.springframework.boot:spring-boot-starter-test'
     // spring
 //    implementation "org.springframework:spring-context:${springVersion}"
 //    implementation "org.springframework:spring-web:${springVersion}"

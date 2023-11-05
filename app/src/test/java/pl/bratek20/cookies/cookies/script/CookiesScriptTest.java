@@ -14,7 +14,7 @@ class CookiesScriptTest extends CookiesApiTest {
     protected CookiesApiTest.Context createContext() {
         var impl = ContextCreator.createAndGet(CookiesInMemoryConfig.class, CookiesApi.class);
         var api = new ScriptClient(impl);
-        return new CookiesApiTest.Context(api);
+        return new CookiesApiTest.Context(api, null);
     }
 
 

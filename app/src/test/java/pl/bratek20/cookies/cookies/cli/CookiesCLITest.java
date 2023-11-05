@@ -28,7 +28,7 @@ class CookiesCLITest extends CookiesApiTest {
     @Override
     protected CookiesApiTest.Context createContext() {
         var api = new CLIClient(cliLineHandler);
-        return new CookiesApiTest.Context(api);
+        return new CookiesApiTest.Context(api, null);
     }
 
     @RequiredArgsConstructor

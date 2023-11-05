@@ -27,7 +27,7 @@ class CookiesWebTest extends CookiesApiTest {
     @Override
     protected CookiesApiTest.Context createContext() {
         var api = new WebClient();
-        return new CookiesApiTest.Context(api);
+        return new CookiesApiTest.Context(api, null);
     }
 
     @Override

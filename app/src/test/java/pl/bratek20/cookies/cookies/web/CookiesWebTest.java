@@ -25,8 +25,9 @@ class CookiesWebTest extends CookiesApiTest {
     private int port;
 
     @Override
-    protected CookiesApi createApi() {
-        return new WebClient();
+    protected CookiesApiTest.Context createContext() {
+        var api = new WebClient();
+        return new CookiesApiTest.Context(api);
     }
 
     @Override

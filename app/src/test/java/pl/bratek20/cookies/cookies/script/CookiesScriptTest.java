@@ -11,9 +11,10 @@ import pl.bratek20.common.spring.ContextCreator;
 class CookiesScriptTest extends CookiesApiTest {
 
     @Override
-    protected CookiesApi createApi() {
-        var api = ContextCreator.createAndGet(CookiesInMemoryConfig.class, CookiesApi.class);
-        return new ScriptClient(api);
+    protected CookiesApiTest.Context createContext() {
+        var impl = ContextCreator.createAndGet(CookiesInMemoryConfig.class, CookiesApi.class);
+        var api = new ScriptClient(impl);
+        return new CookiesApiTest.Context(api);
     }
 
 

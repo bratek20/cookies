@@ -25,4 +25,8 @@ public class EventsApiMock implements EventsApi {
     public <T extends Event> void subscribe(Class<T> eventType, EventListener<T> listener) {
 
     }
+
+    public void reset() {
+        publishedEvents.clear();
+    }
 }

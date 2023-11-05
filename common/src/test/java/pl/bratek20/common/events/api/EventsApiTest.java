@@ -2,7 +2,7 @@ package pl.bratek20.common.events.api;
 
 import lombok.Value;
 import org.junit.jupiter.api.Test;
-import pl.bratek20.common.module.BaseApiTest;
+import pl.bratek20.common.modules.BaseApiTest;
 
 import java.util.ArrayList;
 import java.util.List;

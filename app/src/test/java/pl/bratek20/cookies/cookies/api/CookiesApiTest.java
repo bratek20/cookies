@@ -1,11 +1,10 @@
 package pl.bratek20.cookies.cookies.api;
 
-import lombok.Value;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import pl.bratek20.common.events.EventsApiMock;
 import pl.bratek20.common.identity.api.IdentityId;
-import pl.bratek20.common.module.BaseApiWithContextTest;
+import pl.bratek20.common.modules.BaseApiWithContextTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

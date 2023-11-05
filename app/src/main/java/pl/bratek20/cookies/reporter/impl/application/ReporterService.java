@@ -12,8 +12,7 @@ public class ReporterService implements ReporterApi {
     private final EventsApi eventsApi;
 
     @Override
-    public void onAppStart() {
+    public void start() {
         eventsApi.subscribe(CookieConsumedEvent.class, event -> reporter.report("Cookie consumed: " + event.getFlavor()));
     }
-
 }

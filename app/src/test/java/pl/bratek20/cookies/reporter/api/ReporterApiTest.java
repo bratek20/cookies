@@ -2,7 +2,6 @@ package pl.bratek20.cookies.reporter.api;
 
 import org.junit.jupiter.api.Test;
 import pl.bratek20.common.events.api.EventsApi;
-import pl.bratek20.common.module.BaseApiWithContextTest;
 import pl.bratek20.cookies.cookies.api.CookieConsumedEvent;
 import pl.bratek20.cookies.cookies.api.CookieFlavor;
 
@@ -43,7 +42,7 @@ public abstract class ReporterApiTest {
     @Test
     void shouldWork() {
         applyContext();
-        api.onAppStart();
+        api.start();
 
         eventsApi.publish(new CookieConsumedEvent(CookieFlavor.CHOCOLATE));
 

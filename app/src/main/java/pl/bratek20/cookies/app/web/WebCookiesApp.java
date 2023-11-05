@@ -7,6 +7,5 @@ public class WebCookiesApp {
 
     public static void main(String[] args) {
         var c = SpringApplication.run(WebCookiesAppConfig.class, args);
-        c.getBean(ReporterApi.class).onAppStart();
     }
 }

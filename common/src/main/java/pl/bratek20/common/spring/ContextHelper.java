@@ -17,6 +17,11 @@ public class ContextHelper {
         this.configurations = List.of(configurations);
     }
 
+    public ContextHelper build() {
+        ensureBuilt();
+        return this;
+    }
+
     public <T> T get(Class<T> bean) {
         ensureBuilt();
         return context.getBean(bean);

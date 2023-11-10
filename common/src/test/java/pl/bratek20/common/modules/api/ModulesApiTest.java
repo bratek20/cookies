@@ -20,10 +20,10 @@ public abstract class ModulesApiTest {
         }
     }
 
-    static class Module1 extends BaseModule {
+    public static class Module1 extends BaseModule {
     }
 
-    static class Module2 extends BaseModule {
+    public static class Module2 extends BaseModule {
     }
 
     public record StartContext(List<? extends BaseModule> modules) {

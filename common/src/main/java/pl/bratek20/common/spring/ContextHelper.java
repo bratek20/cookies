@@ -1,5 +1,6 @@
 package pl.bratek20.common.spring;
 
+import lombok.SneakyThrows;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.ArrayList;
@@ -38,6 +39,13 @@ public class ContextHelper {
 
     public ContextHelper registerSingleton(String singletonName, Object singletonObject) {
         singletonsToRegister.add(new Singleton(singletonName, singletonObject));
+        return this;
+    }
+
+    @SneakyThrows
+    public ContextHelper registerSingletonClass(Class<?> singletonClass) {
+        var singletonObject = singletonClass.getConstructor().newInstance();
+        singletonsToRegister.add(new Singleton(singletonClass.getSimpleName(), singletonObject));
         return this;
     }
 }

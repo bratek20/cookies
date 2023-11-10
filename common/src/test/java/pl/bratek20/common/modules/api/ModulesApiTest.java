@@ -2,10 +2,12 @@ package pl.bratek20.common.modules.api;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public abstract class ModulesApiTest {
-    static class BaseModule implements Startable {
+    protected static class BaseModule implements Startable {
         int startCalled = 0;
 
         @Override
@@ -18,21 +20,24 @@ public abstract class ModulesApiTest {
         }
     }
 
-    public static class Module1 extends BaseModule {
+    static class Module1 extends BaseModule {
     }
 
-    public static class Module2 extends BaseModule {
+    static class Module2 extends BaseModule {
     }
 
-    public record StartContext(Module1 module1, Module2 module2) {
+    public record StartContext(List<? extends BaseModule> modules) {
     }
-    protected abstract <T extends Startable> StartContext start(Class<Module1> module1Class, Class<Module2> module2Class);
+    protected abstract StartContext start(List<Class<? extends BaseModule>> moduleClasses);
 
     @Test
     void shouldStartModules() {
-        var context = start(Module1.class, Module2.class);
+        var context = start(List.of(
+            Module1.class,
+            Module2.class
+        ));
 
-        context.module1.assertStartCalledOnce();
-        context.module2.assertStartCalledOnce();
+        assertThat(context.modules).hasSize(2);
+        context.modules.forEach(BaseModule::assertStartCalledOnce);
     }
 }

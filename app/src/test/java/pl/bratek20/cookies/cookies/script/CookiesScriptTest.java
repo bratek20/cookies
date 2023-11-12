@@ -1,19 +1,19 @@
 package pl.bratek20.cookies.cookies.script;
 
+import pl.bratek20.common.identity.api.IdentityId;
 import pl.bratek20.cookies.cookies.api.Cookie;
 import pl.bratek20.cookies.cookies.api.CookieFlavor;
 import pl.bratek20.cookies.cookies.api.CookiesApi;
 import pl.bratek20.cookies.cookies.api.CookiesApiTest;
-import pl.bratek20.cookies.cookies.impl.infrastructure.configs.CookiesInMemoryConfig;
-import pl.bratek20.common.identity.api.IdentityId;
-import pl.bratek20.common.spring.ContextCreator;
+import pl.bratek20.cookies.cookies.impl.CookiesImplTest;
 
 class CookiesScriptTest extends CookiesApiTest {
 
     @Override
-    protected CookiesApi createApi() {
-        var api = ContextCreator.createAndGet(CookiesInMemoryConfig.class, CookiesApi.class);
-        return new ScriptClient(api);
+    protected CookiesApiTest.Context createContext() {
+        var implContext = CookiesImplTest.createImplContext();
+        var api = new ScriptClient(implContext.api());
+        return new CookiesApiTest.Context(api, implContext.eventsApiMock());
     }
 
 

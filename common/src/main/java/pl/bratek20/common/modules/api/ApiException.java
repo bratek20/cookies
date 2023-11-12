@@ -1,4 +1,4 @@
-package pl.bratek20.common.module;
+package pl.bratek20.common.modules.api;
 
 public class ApiException extends RuntimeException {
 

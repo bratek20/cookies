@@ -2,18 +2,20 @@ package pl.bratek20.cookies.cookies.web;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.annotation.DirtiesContext;
 import pl.bratek20.common.app.web.BaseWebConfig;
+import pl.bratek20.common.events.EventsApiMock;
 import pl.bratek20.common.identity.api.IdentityId;
 import pl.bratek20.cookies.cookies.api.*;
-import pl.bratek20.cookies.cookies.impl.infrastructure.configs.CookiesInMemoryConfig;
+import pl.bratek20.cookies.cookies.impl.CookiesTestConfig;
 
 @SpringBootTest(
     classes = {
         BaseWebConfig.class,
-        CookiesInMemoryConfig.class,
+        CookiesTestConfig.class,
         CookiesWebServerConfig.class,
     },
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
@@ -24,9 +26,13 @@ class CookiesWebTest extends CookiesApiTest {
     @LocalServerPort
     private int port;
 
+    @Autowired
+    private EventsApiMock eventsApiMock;
+
     @Override
-    protected CookiesApi createApi() {
-        return new WebClient();
+    protected CookiesApiTest.Context createContext() {
+        var api = new WebClient();
+        return new CookiesApiTest.Context(api, eventsApiMock);
     }
 
     @Override

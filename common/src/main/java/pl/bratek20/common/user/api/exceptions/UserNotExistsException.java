@@ -1,6 +1,6 @@
 package pl.bratek20.common.user.api.exceptions;
 
-import pl.bratek20.common.module.ApiException;
+import pl.bratek20.common.modules.api.ApiException;
 
 public class UserNotExistsException extends ApiException {
 

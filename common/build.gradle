@@ -9,6 +9,8 @@ version = '0.0.2-SNAPSHOT'
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    testFixturesImplementation 'org.springframework.boot:spring-boot-starter-test'
     // spring
 //    implementation "org.springframework:spring-context:${springVersion}"
 //    implementation "org.springframework:spring-web:${springVersion}"
@@ -25,6 +27,9 @@ dependencies {
     implementation "org.apache.logging.log4j:log4j-api:${log4jVersion}"
     implementation "org.apache.logging.log4j:log4j-core:${log4jVersion}"
     implementation "org.apache.logging.log4j:log4j-slf4j-impl:${log4jVersion}"
+
+    //event bus
+    implementation 'com.google.guava:guava:32.1.2-jre'
 
     // scripts
     api "commons-cli:commons-cli:${commonsCliVersion}"

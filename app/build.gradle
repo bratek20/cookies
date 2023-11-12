@@ -7,7 +7,7 @@ plugins {
 version = '0.0.4-SNAPSHOT'
 
 application {
-    mainClass = 'pl.bratek20.cookies.main.Main'
+    mainClass = 'pl.bratek20.common.main.Main'
 }
 
 dependencies {

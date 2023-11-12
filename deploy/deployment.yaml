@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cookies-web-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cookies-web-app
+  template:
+    metadata:
+      labels:
+        app: cookies-web-app
+    spec:
+      containers:
+        - name: cookies-web-app
+          image: gcr.io/cookies-web-app/cookies-web-app:latest
+          ports:
+            - containerPort: 8080

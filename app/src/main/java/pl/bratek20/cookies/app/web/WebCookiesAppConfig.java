@@ -10,6 +10,7 @@ import pl.bratek20.cookies.cookies.impl.infrastructure.configs.CookiesConfig;
 import pl.bratek20.cookies.cookies.impl.infrastructure.configs.CookiesInMemoryConfig;
 import pl.bratek20.cookies.cookies.web.CookiesWebServerConfig;
 import pl.bratek20.cookies.reporter.impl.infrastructure.ReporterConfig;
+import pl.bratek20.cookies.view.ViewController;
 
 @Configuration
 @Import({
@@ -19,7 +20,8 @@ import pl.bratek20.cookies.reporter.impl.infrastructure.ReporterConfig;
     UserWebServerConfig.class,
     EventsConfig.class,
     ReporterConfig.class,
-    ModulesConfig.class
+    ModulesConfig.class,
+    ViewController.class
 })
 public class WebCookiesAppConfig {
 

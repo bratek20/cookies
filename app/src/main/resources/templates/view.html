@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cookie Operations</title>
+    <script>
+        function addCookie() {
+            var identityId = document.getElementById("identityId").value;
+            var cookieFlavor = document.getElementById("cookieFlavor").value;
+
+            fetch('/cookies/add/' + identityId, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    flavor: cookieFlavor
+                })
+            }).then(response => {
+                if (response.ok) {
+                    alert('Cookie added successfully');
+                } else {
+                    alert('Failed to add cookie');
+                }
+            });
+        }
+
+        function consumeCookie() {
+            var identityId = document.getElementById("identityId").value;
+            var cookieFlavor = document.getElementById("cookieFlavor").value;
+
+            fetch('/cookies/consume/' + identityId + '/' + cookieFlavor, {
+                method: 'POST'
+            }).then(response => {
+                if (response.ok) {
+                    alert('Cookie consumed successfully');
+                } else {
+                    alert('Failed to consume cookie');
+                }
+            });
+        }
+
+        function countCookies() {
+            var identityId = document.getElementById("identityId").value;
+            var cookieFlavor = document.getElementById("cookieFlavor").value;
+
+            fetch('/cookies/count/' + identityId + '/' + cookieFlavor)
+                .then(response => response.json())
+                .then(data => {
+                    alert('Number of ' + cookieFlavor + ' cookies: ' + data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+</head>
+<body>
+<h1>Cookie Operations</h1>
+
+<h2>Cookie</h2>
+<label for="identityId">Identity ID:</label>
+<input type="text" id="identityId"><br>
+<label for="cookieFlavor">Cookie Flavor:</label>
+<input type="text" id="cookieFlavor"><br>
+
+<h2>Add Cookie</h2>
+<button onclick="addCookie()">Add Cookie</button>
+
+<h2>Consume Cookie</h2>
+<button onclick="consumeCookie()">Consume Cookie</button>
+
+<h2>Count Cookies</h2>
+<button onclick="countCookies()">Count Cookies</button>
+
+</body>
+</html>

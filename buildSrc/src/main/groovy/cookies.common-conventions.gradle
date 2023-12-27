@@ -38,5 +38,19 @@ publishing {
                 password = System.getenv("GITHUB_TOKEN")
             }
         }
+        maven {
+            url = "https://maven.pkg.github.com/bratek20/commons"
+            credentials {
+                def usernameProperty = project.findProperty("gpr.user") ?: System.getenv("USERNAME_GITHUB")
+                def tokenProperty = project.findProperty("gpr.token") ?: System.getenv("TOKEN_GITHUB")
+
+                println "Username Property: $usernameProperty"
+                println "Token Property: $tokenProperty"
+
+                username = usernameProperty
+                password = tokenProperty
+            }
+        }
     }
+
 }

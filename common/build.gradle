@@ -7,7 +7,7 @@ plugins {
 version = '0.0.2-SNAPSHOT'
 
 dependencies {
-    implementation 'pl.bratek20:bratek20-commons:1.0.1'
+    api 'pl.bratek20:bratek20-commons:1.0.1'
     
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

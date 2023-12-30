@@ -8,6 +8,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Print GitHub Token
+        run: echo "GITHUB_TOKEN=${GITHUB_TOKEN}"
+
       - name: Check Out Code
         uses: actions/checkout@v2
 
@@ -22,9 +25,13 @@ jobs:
 
       - name: Print GitHub Token
         run: echo "GITHUB_TOKEN=${GITHUB_TOKEN}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and Test with Gradle
         run: ./gradlew clean test
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 #      - name: Test Report
 #        uses: dorny/test-reporter@v1

@@ -1,5 +1,8 @@
 name: Run Tests
 
+permissions:
+  packages: read
+
 on:
   push:
 

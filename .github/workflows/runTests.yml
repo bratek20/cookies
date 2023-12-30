@@ -1,8 +1,5 @@
 name: Run Tests
 
-permissions:
-  packages: read
-
 on:
   push:
 
@@ -22,6 +19,9 @@ jobs:
 
       - name: Grant Execute Permission to Gradlew
         run: chmod +x ./gradlew
+
+      - name: Print GitHub Token
+        run: echo "GITHUB_TOKEN=${GITHUB_TOKEN}"
 
       - name: Build and Test with Gradle
         run: ./gradlew clean test

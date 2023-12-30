@@ -8,9 +8,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print GitHub Token
-        run: echo "GITHUB_TOKEN=${GITHUB_TOKEN}"
-
       - name: Check Out Code
         uses: actions/checkout@v2
 
@@ -22,11 +19,6 @@ jobs:
 
       - name: Grant Execute Permission to Gradlew
         run: chmod +x ./gradlew
-
-      - name: Print GitHub Token
-        run: echo "GITHUB_TOKEN=${GITHUB_TOKEN}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and Test with Gradle
         run: ./gradlew clean test

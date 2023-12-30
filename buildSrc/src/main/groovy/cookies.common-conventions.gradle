@@ -22,9 +22,6 @@ repositories {
         credentials {
             username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
             password = project.findProperty("gpr.token") ?: System.getenv("GITHUB_TOKEN")
-
-            println("username: " + username)
-            println("password: " + password)
         }
     }
 }

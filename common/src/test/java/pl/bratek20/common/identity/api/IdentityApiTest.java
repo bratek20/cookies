@@ -1,7 +1,7 @@
 package pl.bratek20.common.identity.api;
 
 import org.junit.jupiter.api.Test;
-import pl.bratek20.common.modules.BaseApiTest;
+import pl.bratek20.commons.modules.BaseApiTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

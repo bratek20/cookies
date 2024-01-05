@@ -2,7 +2,7 @@ package pl.bratek20.common.script;
 
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
-import pl.bratek20.common.spring.ContextCreator;
+import pl.bratek20.commons.spring.ContextCreator;
 import pl.bratek20.commons.script.Script;
 
 @RequiredArgsConstructor

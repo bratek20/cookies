@@ -6,13 +6,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import pl.bratek20.common.app.cli.BaseCLIConfig;
 import pl.bratek20.common.cli.CLILineHandler;
-import pl.bratek20.common.events.EventsApiMock;
+import pl.bratek20.commons.events.EventsApiMock;
 import pl.bratek20.cookies.cookies.api.CookiesApiTest;
 import pl.bratek20.cookies.cookies.api.Cookie;
 import pl.bratek20.cookies.cookies.api.CookieFlavor;
 import pl.bratek20.cookies.cookies.api.CookiesApi;
 import pl.bratek20.cookies.cookies.impl.CookiesTestConfig;
-import pl.bratek20.cookies.cookies.impl.infrastructure.configs.CookiesInMemoryConfig;
 import pl.bratek20.common.identity.api.IdentityId;
 
 @SpringBootTest(

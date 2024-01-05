@@ -1,8 +1,8 @@
 package pl.bratek20.cookies.reporter.impl;
 
-import pl.bratek20.common.events.api.EventsApi;
-import pl.bratek20.common.events.impl.infrastructure.EventsConfig;
-import pl.bratek20.common.spring.ContextHelper;
+import pl.bratek20.commons.events.api.EventsApi;
+import pl.bratek20.commons.events.impl.infrastructure.EventsConfig;
+import pl.bratek20.commons.spring.ContextHelper;
 import pl.bratek20.cookies.reporter.api.Reporter;
 import pl.bratek20.cookies.reporter.api.ReporterApi;
 import pl.bratek20.cookies.reporter.api.ReporterApiTest;

@@ -1,7 +1,7 @@
 package pl.bratek20.cookies.cookies.impl;
 
-import pl.bratek20.common.events.EventsApiMock;
-import pl.bratek20.common.spring.ContextHelper;
+import pl.bratek20.commons.events.EventsApiMock;
+import pl.bratek20.commons.spring.ContextHelper;
 import pl.bratek20.cookies.cookies.api.CookiesApi;
 import pl.bratek20.cookies.cookies.api.CookiesApiTest;
 

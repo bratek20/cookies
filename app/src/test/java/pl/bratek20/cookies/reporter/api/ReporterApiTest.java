@@ -1,7 +1,7 @@
 package pl.bratek20.cookies.reporter.api;
 
 import org.junit.jupiter.api.Test;
-import pl.bratek20.common.events.api.EventsApi;
+import pl.bratek20.commons.events.api.EventsApi;
 import pl.bratek20.cookies.cookies.api.CookieConsumedEvent;
 import pl.bratek20.cookies.cookies.api.CookieFlavor;
 

@@ -6,7 +6,7 @@ import pl.bratek20.common.cli.CLILineHandler;
 import pl.bratek20.cookies.cookies.api.Cookie;
 import pl.bratek20.cookies.cookies.api.CookieFlavor;
 import pl.bratek20.cookies.cookies.api.CookiesApi;
-import pl.bratek20.common.identity.api.IdentityId;
+import pl.bratek20.commons.identity.api.IdentityId;
 
 @RequiredArgsConstructor
 @Slf4j

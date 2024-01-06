@@ -1,7 +1,7 @@
 package pl.bratek20.cookies.cookies.impl;
 
 import pl.bratek20.commons.events.EventsApiMock;
-import pl.bratek20.commons.spring.ContextHelper;
+import pl.bratek20.commons.spring.di.SpringContextBuilder;
 import pl.bratek20.cookies.cookies.api.CookiesApi;
 import pl.bratek20.cookies.cookies.api.CookiesApiTest;
 
@@ -13,9 +13,9 @@ public class CookiesImplTest extends CookiesApiTest {
     }
 
     public static CookiesApiTest.Context createImplContext() {
-        var helper = new ContextHelper(CookiesTestConfig.class);
-        var api = helper.get(CookiesApi.class);
-        var eventsApiMock = helper.get(EventsApiMock.class);
+        var context = new SpringContextBuilder(CookiesTestConfig.class).build();
+        var api = context.get(CookiesApi.class);
+        var eventsApiMock = context.get(EventsApiMock.class);
         return new CookiesApiTest.Context(api, eventsApiMock);
     }
 }

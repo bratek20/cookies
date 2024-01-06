@@ -8,8 +8,8 @@ import pl.bratek20.cookies.cookies.api.Cookie;
 import pl.bratek20.cookies.cookies.api.CookieFlavor;
 import pl.bratek20.cookies.cookies.api.CookiesApi;
 import pl.bratek20.cookies.cookies.impl.infrastructure.configs.CookiesInMemoryConfig;
-import pl.bratek20.common.identity.api.IdentityId;
-import pl.bratek20.common.script.SpringScriptRunner;
+import pl.bratek20.commons.identity.api.IdentityId;
+import pl.bratek20.commons.script.SpringScriptRunner;
 
 public class CookiesScript extends Script<CookiesApi, CookiesScript.Args> {
 

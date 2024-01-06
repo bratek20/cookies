@@ -1,5 +1,5 @@
 plugins {
-    id 'bratek20-commons.base-conventions'
+    id 'pl.bratek20.base-conventions'
     id 'java-test-fixtures'
 
     id 'org.springframework.boot'

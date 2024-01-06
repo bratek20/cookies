@@ -4,7 +4,17 @@ plugins {
 
 repositories {
     gradlePluginPortal()
+
     mavenLocal()
+
+    maven {
+        name = "GitHubPackages"
+        url = "https://maven.pkg.github.com/bratek20/commons"
+        credentials {
+            username = System.getenv("GITHUB_ACTOR")
+            password = System.getenv("GITHUB_TOKEN")
+        }
+    }
 }
 
 dependencies {

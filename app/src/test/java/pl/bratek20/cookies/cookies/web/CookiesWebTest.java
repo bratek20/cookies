@@ -2,42 +2,28 @@ package pl.bratek20.cookies.cookies.web;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.test.annotation.DirtiesContext;
-import pl.bratek20.common.app.web.BaseWebConfig;
 import pl.bratek20.commons.events.EventsApiMock;
 import pl.bratek20.commons.identity.api.IdentityId;
 import pl.bratek20.cookies.cookies.api.*;
 import pl.bratek20.cookies.cookies.impl.CookiesTestConfig;
+import pl.bratek20.spring.web.TestWebAppRunner;
 
-@SpringBootTest(
-    classes = {
-        BaseWebConfig.class,
-        CookiesTestConfig.class,
-        CookiesWebServerConfig.class,
-    },
-    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
-)
-@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 class CookiesWebTest extends CookiesApiTest {
-
-    @LocalServerPort
-    private int port;
-
-    @Autowired
-    private EventsApiMock eventsApiMock;
 
     @Override
     protected CookiesApiTest.Context createContext() {
+        var runner = new TestWebAppRunner(
+            CookiesWebServerConfig.class,
+            CookiesTestConfig.class
+        );
+        RestAssured.port = runner.getPort();
+
+        var context = runner.run();
+
+        var eventsApiMock = context.get(EventsApiMock.class);
+
         var api = new WebClient();
         return new CookiesApiTest.Context(api, eventsApiMock);
-    }
-
-    @Override
-    protected void setup() {
-        RestAssured.port = port;
     }
 
     static class WebClient implements CookiesApi {

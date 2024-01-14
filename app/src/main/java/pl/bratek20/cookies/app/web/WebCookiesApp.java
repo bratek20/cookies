@@ -1,10 +1,10 @@
 package pl.bratek20.cookies.app.web;
 
-import org.springframework.boot.SpringApplication;
+import pl.bratek20.spring.web.WebApp;
 
 public class WebCookiesApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(WebCookiesAppConfig.class, args);
+        WebApp.run(WebCookiesAppConfig.class, args);
     }
 }

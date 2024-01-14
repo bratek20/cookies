@@ -7,12 +7,14 @@ repositories {
 
     mavenLocal()
 
-    maven {
-        name = "GitHubPackages"
-        url = "https://maven.pkg.github.com/bratek20/commons"
-        credentials {
-            username = System.getenv("GITHUB_ACTOR")
-            password = System.getenv("GITHUB_TOKEN")
+    if (System.getenv("GITHUB_ACTOR") != null) {
+        maven {
+            name = "GitHubPackages"
+            url = "https://maven.pkg.github.com/bratek20/commons"
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
         }
     }
 }
@@ -21,5 +23,5 @@ dependencies {
     implementation "io.freefair.gradle:lombok-plugin:8.3"
     implementation "org.springframework.boot:spring-boot-gradle-plugin:3.1.3"
     implementation "io.spring.gradle:dependency-management-plugin:1.1.3"
-    implementation "pl.bratek20.plugins:plugins-conventions:1.0.4"
+    implementation "pl.bratek20:bratek20-conventions:1.0.5"
 }

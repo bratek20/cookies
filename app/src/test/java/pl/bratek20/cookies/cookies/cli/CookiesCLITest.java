@@ -1,36 +1,28 @@
 package pl.bratek20.cookies.cookies.cli;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.DirtiesContext;
-import pl.bratek20.common.app.cli.BaseCLIConfig;
 import pl.bratek20.common.cli.CLILineHandler;
 import pl.bratek20.commons.events.EventsApiMock;
-import pl.bratek20.cookies.cookies.api.CookiesApiTest;
+import pl.bratek20.commons.identity.api.IdentityId;
 import pl.bratek20.cookies.cookies.api.Cookie;
 import pl.bratek20.cookies.cookies.api.CookieFlavor;
 import pl.bratek20.cookies.cookies.api.CookiesApi;
+import pl.bratek20.cookies.cookies.api.CookiesApiTest;
 import pl.bratek20.cookies.cookies.impl.CookiesTestConfig;
-import pl.bratek20.commons.identity.api.IdentityId;
+import pl.bratek20.spring.context.SpringContextBuilder;
 
-@SpringBootTest(
-    classes = {
-        BaseCLIConfig.class,
-        CookiesTestConfig.class,
-        CookiesCLIServerConfig.class,
-    }
-)
-@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 class CookiesCLITest extends CookiesApiTest {
-    @Autowired
-    private CLILineHandler cliLineHandler;
-
-    @Autowired
-    private EventsApiMock eventsApiMock;
 
     @Override
     protected CookiesApiTest.Context createContext() {
+        var context = new SpringContextBuilder(
+            CookiesTestConfig.class,
+            CookiesCLIServerConfig.class
+        ).build();
+
+        var eventsApiMock = context.get(EventsApiMock.class);
+        var cliLineHandler = context.get(CLILineHandler.class);
+
         var api = new CLIClient(cliLineHandler);
         return new CookiesApiTest.Context(api, eventsApiMock);
     }

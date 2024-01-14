@@ -1,9 +1,3 @@
-pluginManagement {
-    repositories {
-        mavenLocal()
-    }
-}
-
 rootProject.name = 'cookies'
 
 include 'common'

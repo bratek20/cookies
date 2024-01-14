@@ -1,7 +1,8 @@
 plugins {
-    id 'application'
     id 'cookies.common-conventions'
-    id 'cookies.web-testing-conventions'
+    id 'pl.bratek20.spring-app-conventions'
+
+    id 'application'
 }
 
 version = '0.0.4-SNAPSHOT'
@@ -14,18 +15,7 @@ dependencies {
     implementation project(':common')
     testImplementation testFixtures(project(':common'))
 
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    runtimeOnly 'com.mysql:mysql-connector-j'
-    implementation "org.flywaydb:flyway-mysql"
-
-    implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${springdocVersion}"
-
-    testImplementation "org.testcontainers:testcontainers:${testcontainersVersion}"
-    testImplementation "org.testcontainers:junit-jupiter:${testcontainersVersion}"
-    testImplementation "org.testcontainers:mysql:${testcontainersVersion}"
+    testImplementation("io.rest-assured:rest-assured:5.3.0")
 }
 
 

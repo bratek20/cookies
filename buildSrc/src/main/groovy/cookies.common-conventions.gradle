@@ -1,52 +1,5 @@
 plugins {
     id 'pl.bratek20.base-conventions'
-    id 'java-test-fixtures'
-
-    id 'org.springframework.boot'
-    id 'io.spring.dependency-management'
-
-    id 'maven-publish'
 }
 
 group = 'pl.bratek20.cookies'
-
-java {
-    sourceCompatibility = '17'
-}
-
-repositories {
-    mavenCentral()
-
-    maven {
-        url = "https://maven.pkg.github.com/bratek20/commons"
-        credentials {
-            username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
-            password = project.findProperty("gpr.token") ?: System.getenv("GITHUB_TOKEN")
-        }
-    }
-
-    mavenLocal()
-}
-
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
-
-publishing {
-    publications {
-        myPublication(MavenPublication) {
-        }
-    }
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = "https://maven.pkg.github.com/bratek20/cookies"
-            credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
-            }
-        }
-    }
-}

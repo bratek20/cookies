@@ -1,13 +1,10 @@
 package pl.bratek20.cookies.app.cli;
 
-import org.springframework.boot.WebApplicationType;
-import org.springframework.boot.builder.SpringApplicationBuilder;
+import pl.bratek20.spring.app.App;
 
 public class CLICookiesApp {
 
     public static void main(String[] args) {
-        new SpringApplicationBuilder(CLICookiesAppConfig.class)
-            .web(WebApplicationType.NONE)
-            .run(args);
+        App.run(CLICookiesAppConfig.class, args);
     }
 }

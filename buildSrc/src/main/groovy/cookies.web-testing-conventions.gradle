@@ -1,7 +1,0 @@
-plugins {
-    id 'cookies.testing-conventions'
-}
-
-dependencies {
-    testImplementation "io.rest-assured:rest-assured:${restAssuredVersion}"
-}

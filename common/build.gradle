@@ -1,14 +1,8 @@
 plugins {
-    id 'cookies.common-conventions'
-    id 'pl.bratek20.library-conventions'
+    id 'pl.bratek20.library-conventions' version '1.0.0-SNAPSHOT'
 }
 
-version = '0.0.2-SNAPSHOT'
-
 dependencies {
-    api 'pl.bratek20:bratek20-commons:1.0.6'
-    testFixturesApi(testFixtures('pl.bratek20:bratek20-commons:1.0.6'))
-
-    api 'pl.bratek20:bratek20-spring:1.0.1'
-    testFixturesApi(testFixtures('pl.bratek20:bratek20-spring:1.0.1'))
+    api 'pl.bratek20:bratek20-starter:1.0.0-SNAPSHOT'
+    testFixturesApi(testFixtures('pl.bratek20:bratek20-starter:1.0.0-SNAPSHOT'))
 }

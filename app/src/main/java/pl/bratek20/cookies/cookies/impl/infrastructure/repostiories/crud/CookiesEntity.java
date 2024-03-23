@@ -1,17 +1,16 @@
 package pl.bratek20.cookies.cookies.impl.infrastructure.repostiories.crud;
 
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
-@Entity
 @Setter
 @Getter
 @Table(name = "cookies")
 public class CookiesEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; // Auto-generated primary key
 
     private Long identityId;

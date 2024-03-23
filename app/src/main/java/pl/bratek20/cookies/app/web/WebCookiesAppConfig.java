@@ -2,7 +2,7 @@ package pl.bratek20.cookies.app.web;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import pl.bratek20.commons.events.impl.infrastructure.EventsConfig;
+import pl.bratek20.architecture.events.impl.infrastructure.EventsConfig;
 import pl.bratek20.commons.modules.impl.ModulesConfig;
 import pl.bratek20.commons.user.impl.infrastructure.inmemory.InMemoryConfig;
 import pl.bratek20.commons.user.web.UserWebServerConfig;

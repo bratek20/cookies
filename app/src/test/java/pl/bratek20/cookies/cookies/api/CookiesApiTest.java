@@ -2,13 +2,13 @@ package pl.bratek20.cookies.cookies.api;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import pl.bratek20.commons.events.EventsApiMock;
+import pl.bratek20.architecture.events.EventsApiMock;
 import pl.bratek20.commons.identity.api.IdentityId;
-import pl.bratek20.commons.modules.BaseApiWithContextTest;
+import pl.bratek20.tests.ContextTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public abstract class CookiesApiTest extends BaseApiWithContextTest<CookiesApiTest.Context> {
+public abstract class CookiesApiTest extends ContextTest<CookiesApiTest.Context> {
 
     public record Context(CookiesApi api, EventsApiMock eventsApiMock) { }
 

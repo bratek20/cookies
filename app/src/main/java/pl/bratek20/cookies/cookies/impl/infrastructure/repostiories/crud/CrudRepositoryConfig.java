@@ -5,14 +5,14 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.data.jdbc.repository.config.EnableJdbcRepositories;
 import pl.bratek20.cookies.cookies.impl.application.CookiesRepository;
 
 @Configuration
 @Import({
     DataSourceAutoConfiguration.class,
 })
-@EnableJpaRepositories
+@EnableJdbcRepositories
 @EntityScan
 public class CrudRepositoryConfig {
 

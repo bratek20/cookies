@@ -2,7 +2,7 @@ package pl.bratek20.cookies.cookies.web;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
-import pl.bratek20.commons.events.EventsApiMock;
+import pl.bratek20.architecture.events.EventsApiMock;
 import pl.bratek20.commons.identity.api.IdentityId;
 import pl.bratek20.cookies.cookies.api.*;
 import pl.bratek20.cookies.cookies.impl.CookiesTestConfig;

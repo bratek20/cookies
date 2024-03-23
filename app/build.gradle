@@ -1,6 +1,6 @@
 plugins {
-    id 'cookies.common-conventions'
-    id 'pl.bratek20.spring-app-conventions'
+    id 'pl.bratek20.base-conventions' version '1.0.0-SNAPSHOT'
+    id 'pl.bratek20.spring-app-conventions' version '1.0.0-SNAPSHOT'
 
     id 'application'
 }

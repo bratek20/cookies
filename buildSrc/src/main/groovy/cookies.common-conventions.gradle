@@ -1,5 +1,0 @@
-plugins {
-    id 'pl.bratek20.base-conventions'
-}
-
-group = 'pl.bratek20.cookies'

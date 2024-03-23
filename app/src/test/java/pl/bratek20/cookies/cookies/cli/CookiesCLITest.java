@@ -1,8 +1,8 @@
 package pl.bratek20.cookies.cookies.cli;
 
 import lombok.RequiredArgsConstructor;
+import pl.bratek20.architecture.events.EventsApiMock;
 import pl.bratek20.common.cli.CLILineHandler;
-import pl.bratek20.commons.events.EventsApiMock;
 import pl.bratek20.commons.identity.api.IdentityId;
 import pl.bratek20.cookies.cookies.api.Cookie;
 import pl.bratek20.cookies.cookies.api.CookieFlavor;

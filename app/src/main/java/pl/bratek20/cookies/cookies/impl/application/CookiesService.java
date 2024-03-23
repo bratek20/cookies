@@ -1,7 +1,7 @@
 package pl.bratek20.cookies.cookies.impl.application;
 
 import lombok.RequiredArgsConstructor;
-import pl.bratek20.commons.events.api.EventsApi;
+import pl.bratek20.architecture.events.api.EventsApi;
 import pl.bratek20.cookies.cookies.api.*;
 import pl.bratek20.commons.identity.api.IdentityId;
 
